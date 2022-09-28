@@ -1,0 +1,20 @@
+.outerFooter{
+    margin-top: 200px;;
+}
+
+
+.suport{
+    width:80%;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    margin: auto;
+    line-height: 40px;
+}
+
+h1{
+    font-size: larger;
+    font-weight: 600;
+}
+p{
+    font-size: large;
+}

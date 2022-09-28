@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
+
+.outsideContainer {
+  /* border:1px solid red; */
+  background-color: #fff;
+  padding: 1.25rem 1rem;
+  box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+  font-family: "Nunito Sans", sans-serif;
+}
+.sticky{
+  background-color: #fff;
+  padding: 1.25rem 1rem;
+  box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+  font-family: "Nunito Sans", sans-serif;
+  width:100%;
+  margin-bottom: 120rem;
+  position: fixed;
+  right:0;
+  left:0;
+  top:0;
+  z-index:10000;
+  
+}
+
+.greenBar {
+  text-align: center;
+  padding: 1em;
+  background-color: #25cf60;
+  color: #fff;
+  position: relative;
+  z-index: 123123;
+}
+
+.logoDiv {
+  width: 76%;
+  margin: auto;
+  align-items: center;
+  /* border:1px solid red; */
+}
+.featureBox {
+  /* border: 1px solid; */
+  width: 35%;
+  color: rgb(51, 51, 51);
+  font-weight: 600;
+  margin-left: 10%;
+}
+.featureBtn {
+  font-weight: 600;
+  color: rgb(51, 51, 51);
+}
+.bukDemo {
+  width: auto;
+  /* border: 1px solid; */
+  margin-left: 5%;
+}
+.time_Tracking_btn {
+  height:auto;
+  width: 230px;
+  border-radius: 50px;
+  padding: 15px 35px;
+  background-color: #fcbc31;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+}
+.menuu img {
+  margin-right: 20px;
+}
+.menuu button:hover {
+  background-color: #23d260;
+  border-radius: 6px;
+}
+.outerContainr, .leftLog {
+  display: none;
+}
+
+
+
+/* MEADIA QUERY(RESPONSIVE) */
+/* 1. Medium Screen  */
+
+@media only screen and (max-width: 1020px) and (min-width: 767px) {
+    .outsideContainer, .sticky{
+      display: none;
+    }
+    .outerContainr {
+      display: block;
+      height: auto;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+    }
+    .leftLog{
+      display: block;
+      height: auto;
+      background-color: #fff;
+      transition: all 0.2s;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+      font-family: "Nunito Sans", sans-serif;
+      position: fixed;
+      right:0;
+      left:0;
+      top:0;
+      width:100%
+    }  
+    .outerContainr svg {
+      font-size: 25px;
+    }  
+    .timeTracking {
+      border-radius: 50px;
+      padding: 15px 35px;
+      background-color: #fcbc31;
+      color: white;
+      font-weight: bold;
+      width: 95%;
+      margin: auto;
+    }
+  }
+
+/* for small screen */
+
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  .outsideContainer, .sticky {
+    display: none;
+  }
+
+  .outerContainr {
+    display: block;
+    height: auto;
+    box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+    padding-bottom: 20px;
+  }
+
+  .leftLog{
+      display: block;
+      height: auto;
+      background-color: #fff;
+      transition: all 0.2s;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+      font-family: "Nunito Sans", sans-serif;
+      position: fixed;
+      right:0;
+      left:0;
+      top:0;
+      width:100%
+  }
+
+  .outerContainr svg {
+    font-size: 25px;
+  }
+
+  .timeTracking {
+    border-radius: 50px;
+    padding: 15px 35px;
+    background-color: #fcbc31;
+    color: white;
+    font-weight: bold;
+    width: 95%;
+    margin: auto;
+  }
+}
+
+
+
+/* extra small Screen  */
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+    .outsideContainer, .sticky{
+      display: none;
+    }
+  
+    .outerContainr {
+      display: block;
+      height: auto;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+    }
+    .leftLog{
+      display: block;
+      height: auto;
+      background-color: #fff;
+      transition: all 0.2s;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+      font-family: "Nunito Sans", sans-serif;
+      position: fixed;
+      right:0;
+      left:0;
+      top:0;
+      width:100%
+    }
+  
+    .outerContainr svg {
+      font-size: 25px;
+    }
+  
+    .timeTracking {
+      border-radius: 50px;
+      padding: 15px 35px;
+      background-color: #fcbc31;
+      color: white;
+      font-weight: bold;
+      width: 95%;
+      margin: auto;
+    }
+}
+
+
+/* for mobile screen */
+
+@media only screen and (max-width: 320px) and (min-width: 60px) {
+    .outsideContainer, .sticky {
+      display: none;
+    }
+  
+    .outerContainr {
+      display: block;
+      height: auto;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+    }
+    .leftLog{
+      display: block;
+      height: auto;
+      background-color: #fff;
+      transition: all 0.2s;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+      font-family: "Nunito Sans", sans-serif;
+      position: fixed;
+      right:0;
+      left:0;
+      top:0;
+      width:100%;
+      border: 1px solid;
+      margin-bottom: 200px;
+    }
+  
+    .outerContainr svg {
+      font-size: 25px;
+    }
+  
+    .timeTracking {
+      border-radius: 50px;
+      padding: 15px 35px;
+      background-color: #fcbc31;
+      color: white;
+      font-weight: bold;
+      width: 95%;
+      margin: auto;
+    }
+}
