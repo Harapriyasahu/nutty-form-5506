@@ -12,6 +12,7 @@ const checkUserAuth = async (req, res, next) => {
         res.status(401).send("Something went wrong, please login again");
       } else {
         req.body.userId = decoded.userId; 
+        req.body.email = decoded.email
         console.log("auth-middleware reqBody: ", req.body); 
         next();
       }
