@@ -45,8 +45,8 @@ export const AuthReducer = (state = initialState, action) => {
         isError: false,
       };
     case USER_LOGIN_SUCCESS:
-        saveItemToLocal("token", payload.token);
-        saveItemToLocal("user", payload.user);
+      saveItemToLocal("token", payload.token);
+      saveItemToLocal("user", payload.user);
       return {
         ...state,
         isAuthLoading: false,
