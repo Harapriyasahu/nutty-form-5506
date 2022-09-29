@@ -1,0 +1,344 @@
+.timesheetmain{
+    border: 1px solid red;
+    height: 900px;
+    width: 80%;
+    margin-left: 20%;
+}
+
+.trialdiv{
+    /* border: 1px solid green; */
+    height: 60px;
+    width: 100%;
+    background-color: rgb(248,248,248);
+    display: flex;
+    align-items: center;
+}
+
+.trialheaddiv{
+    /* border: 1px solid blue; */
+    height: 80%;
+    width: 350px;
+    margin-left: 250px;
+    align-items: center;
+    text-align: center;
+}
+
+.trialbttnsdiv{
+    /* border: 1px solid blue; */
+    height: 80%;
+    width: 250px;
+    margin-left: 15px;
+}
+
+.trialbttn{
+    /* border: 1px solid black; */
+    margin-top: 5px;
+    border-radius: 6px;
+    background-color: rgb(247,184,1);
+    color: white;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 5px;
+}
+
+.trialbttn:hover{
+    background-color: rgb(206, 165, 43);
+}
+
+.trialbttn1{
+    margin-top: 5px;
+    border-radius: 6px;
+    margin-left: 5px;
+    border: 1px solid rgb(219,219,219);
+    background-color: white;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 5px;
+}
+
+.trialbttn1:hover{
+    background-color: rgb(223, 221, 221);
+}
+
+.trialheadpara{
+    margin-top: 5px;
+}
+
+.userdiv{
+    /* border: 1px solid red; */
+    height: 60px;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    border-bottom: 1px solid gray;
+}
+
+.userdivuser{
+    /* border: 1px solid green; */
+    height: 80%;
+    width: 250px;
+    margin-top: 5px;
+}
+
+.userdivuserhead{
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.userdivuser1{
+    /* border: 1px solid blue; */
+    height: 80%;
+    width: 250px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.userdivuser1img1{
+    height: 30px;
+    width: 30px;
+    margin-left: 17px;
+}
+
+.datediv{
+    /* border: 1px solid green; */
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.datediv1{
+    /* border: 1px solid red; */
+    height: 60px;
+    width: 400px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.datedivinside1{
+    /* border: 1px solid blue; */
+    height: 40px;
+    width: 140px;
+    margin-top: 5px;
+    display: flex;
+}
+
+.datedivinside2{
+    /* border: 1px solid blue; */
+    height: 40px;
+    width: 200px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.datedivinside1right{
+    border: 1px solid gray;
+    height: 40px;
+    width: 40px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.datedivinside1middle{
+    border: 1px solid gray;
+    height: 40px;
+    width: 60px;
+}
+
+.datedivinside1left{
+    border: 1px solid gray;
+    height: 40px;
+    width: 40px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin: auto;
+}
+
+.datedivinside1left:hover{
+    background-color: rgb(179, 174, 174);
+}
+
+.datedivinside1right:hover{
+    background-color: rgb(179, 174, 174);
+}
+
+.datedivinside1arrow{
+    height: 25px;
+    width: 25px;
+}
+
+.datedivinside2day{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: sans-serif;
+    margin-top: 5px;
+}
+
+.datediv2{
+    /* border: 1px solid red; */
+    height: 60px;
+    width: 400px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.datediv2inside1{
+    /* border: 1px solid blue; */
+    height: 40px;
+    width: 140px;
+    margin-top: 5px;
+    display: flex;
+    text-align: center;
+    font-weight: 500;
+}
+
+.datediv2inside1left{
+    border: 1px solid grey;
+    height: 40px;
+    width: 60px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.datediv2inside1left:focus{
+    border: 2px solid green;
+    color: green;
+}
+
+.datediv2inside1right{
+    border: 1px solid grey;
+    height: 40px;
+    width: 80px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.datediv2inside1right:focus{
+    border: 2px solid green;
+    color: green;
+}
+
+.datediv2inside1leftpara{
+    margin-top: 2px;
+}
+
+.datediv2inside2{
+    border: 1px solid gray;
+    height: 40px;
+    width: 50px;
+    margin-top: 5px;
+    margin-left: 8px;
+    border-radius: 5px;
+}
+
+.datediv2inside2refresh{
+    height: 25px;
+    width: 25px;
+    margin: 3px 0 0 9px;
+}
+
+.datediv2inside3{
+    border: 1px solid gray;
+    height: 40px;
+    width: 60px;
+    margin-top: 5px;
+    margin-left: 8px;
+    border-radius: 5px;
+    display: flex;
+}
+
+.datediv2inside4{
+    border: 1px solid gray;
+    height: 40px;
+    width: 110px;
+    margin-top: 5px;
+    margin-left: 8px;
+    border-radius: 5px;
+    display: flex;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.datediv2inside4:focus{
+    background-color: rgb(75,176,99);
+    color: white;
+}
+
+.datediv2inside5{
+    border: 1px solid gray;
+    height: 40px;
+    width: 50px;
+    margin-top: 5px;
+    margin-left: 8px;
+    border-radius: 5px;
+}
+
+.datediv2inside3img{
+    height: 20px;
+    width: 20px;
+    margin: 8px 0 0 3px;
+}
+
+.datediv2inside3icon{
+    height: 20px;
+    width: 20px;
+    margin: 8px 0 0 3px;
+}
+
+.datediv2inside4img{
+    height: 28px;
+    width: 28px;
+    margin: 5px 0 0 3px;
+}
+
+.datediv2inside4para{
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.datediv2inside5img{
+    height: 25px;
+    width: 25px;
+    margin: 3px 0 0 6px;
+}
+
+.datedivinside1middleimg{
+    height: 25px;
+    width: 25px;
+}
+
+.display{
+    display: flex;
+}
+
+.invitecoworker{
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.people{
+    font-weight: 600;
+}
+
+.timings{
+    /* border: 1px solid blue; */
+    height: 35px;
+    width: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.timings1{
+    /* border: 1px solid red; */
+    height: 20px;
+    width: 4%;
+    margin: auto;
+    font-size: 12px;
+    color: grey;
+}
+
+
