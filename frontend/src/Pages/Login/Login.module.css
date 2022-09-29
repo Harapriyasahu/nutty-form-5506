@@ -1,0 +1,44 @@
+
+  
+  .logindiv {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 42%;
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+  }
+  
+  .loginheading {
+    font-size: 24px;
+    font-weight: 700;
+    padding-top: 40px;
+  }
+  
+  .googlebtn{
+    width:75%;
+    margin:auto;
+    height:40px;
+    border:1px solid silver;
+    border-radius: 8px;
+    display:flex;
+    justify-content: center;
+   align-items: center;
+   gap:30px;
+   margin-top: 50px;
+   cursor: pointer;
+  }
+  
+  .loginbtn{
+    margin:auto;
+    margin-top: 20px;
+    border-radius: 30px;
+    padding:15px 10px 15px 10px;
+    font-size: 15px;
+    color:white;
+    font-weight: lighter;
+    width:25%;
+    
+  }
+  
+  
+ 
