@@ -7,7 +7,7 @@ const RightSectiion = () => {
   const navigate = useNavigate();
 
   return (
-    <Box className={styles.logindiv}>
+    <Box w={{base:"90%", md:"70%",lg:"50%"}} m="auto" className={styles.logindiv}>
       <Text className={styles.loginheading}>Log in to TimeCamp</Text>
 
       <Box
