@@ -44,13 +44,10 @@ const Searchbar = () => {
           <IconButton
             cursor="pointer"
             icon={<Icon as={BiCollapse} />}
-            // as={BiCollapse}
             variant="outline"
             color="gray"
-            // colorScheme="gray"
             aria-label="Call Sage"
             fontSize="20px"
-            // icon={BiCollapse}
           />
           <Button cursor="pointer" color="gray" variant="outline">
             Archived
