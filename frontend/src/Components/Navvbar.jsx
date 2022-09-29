@@ -204,7 +204,7 @@ const Navvbar = () => {
               </Box>
 
               <Box>
-                <Routerlink to="/register">
+                <Routerlink to="/login">
                   <Button
                     className={styles.featureBtn}
                     bg="none"
