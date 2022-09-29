@@ -1,0 +1,59 @@
+.p{
+    color: #25CF60;}
+
+    .main_box{
+        display:flex;
+        justify-content: space-around;
+       gap:30px;
+    }
+
+    .box{
+        padding: 29px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 20px;
+        height:"300px"
+    }
+    .box3{
+        background-color: #25CF60;
+        color: white;
+        padding: 29px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 20px;
+        height:"300px"
+    }
+    
+
+    .pricing{
+        width: 80%;
+        margin:auto;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 9rem;
+    }
+
+    @media screen and (max-width: 800px){
+        .pricing{
+            width: 100%;
+            margin:auto;
+            align-items: center;
+            align-content: center;
+        }
+        .main_box{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+        }
+       .box{
+        padding: 20px;
+        align-items: center;
+        text-align: center;
+       }
+        
+    }
+
+    #mytime{
+        width: 100%;
+        margin-top: 50px;
+    }
+    #mytime>img{
+        width: 1500px;
+    }
