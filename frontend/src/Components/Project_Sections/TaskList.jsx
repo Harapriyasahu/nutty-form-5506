@@ -1,4 +1,20 @@
-import { Box, Button, Flex, Icon, IconButton, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  FormControl,
+  FormLabel,
+  Icon,
+  IconButton,
+  Input,
+  Radio,
+  RadioGroup,
+  Select,
+  Stack,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import React from "react";
 import {
   Accordion,
@@ -9,9 +25,23 @@ import {
 } from "@chakra-ui/react";
 import { GrPieChart } from "react-icons/gr";
 import { BsThreeDots, BsPlay } from "react-icons/bs";
-import { Show, Hide } from '@chakra-ui/react'
+import { CloseButton } from "@chakra-ui/react";
+import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
+import { useState } from "react";
 
 const TaskList = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [textBox, setTextBox] = useState(false);
+
+  const handleClose = () => {
+    setTextBox(true);
+  };
+
+  const handleShowTask = () => {
+    setTextBox(false);
+  };
+
   return (
     <Box w="1275px" h="auto">
       <Box
@@ -28,7 +58,7 @@ const TaskList = () => {
           {/* Left Side TaskList Section */}
           <Box
             w="700px"
-            h="108px"
+            h="80px"
             // border="1px solid blue"
             p="2"
           >
@@ -45,84 +75,178 @@ const TaskList = () => {
                 <Accordion defaultIndex={[0]} allowMultiple>
                   <AccordionItem>
                     <h2>
-                      <AccordionButton>
-                        <Box flex="1" textAlign="left">
-                          Project 1 title
-                        </Box>
-                        <AccordionIcon />
-                      </AccordionButton>
-                    </h2>
-                    <AccordionPanel p="0">
-                      <Box
-                        color="gray"
-                        borderRadius="4px"
-                        // ml='0rem'
-                        // ml="1.2rem"
-                        w="620px"
-                        h="52px"
-                        border="1px solid lightgrey"
-                      ></Box>
-                    </AccordionPanel>
-                  </AccordionItem>
-
-                  <AccordionItem>
-                    <h2>
-                      <AccordionButton _hover={{bg: 'none'}}>
-                      {/* <AccordionIcon /> */}
-                        <Flex w='618px' flexDirection='row' justifyContent='space-around'>
-                          <Box flex="1" textAlign="left" w='300px' color='blue'>
+                      <AccordionButton role="group">
+                        <Flex
+                          w="618px"
+                          flexDirection="row"
+                          justifyContent="space-around"
+                          h="40px"
+                        >
+                          <Box flex="1" textAlign="left" w="300px">
                             <Flex>
-                              <AccordionIcon mt='0.6rem' mr='1rem'/>
-                              <Text mt='0.4rem'>Project 2 title</Text>
+                              <AccordionIcon mt="0.4rem" mr="1rem" />
+                              <Icon
+                                mr="0.4rem"
+                                mt="0.6rem"
+                                viewBox="0 0 200 200"
+                                color="orange.400"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                                />
+                              </Icon>
+                              <Text mt="0.2rem">Project 2 title</Text>
                             </Flex>
                           </Box>
 
-                          <Box w='280px' display='none' _hover={{display:'block'}}>
-                            <Flex flexDirection='row' justifyContent='space-evenly'>
-                            <Button cursor="pointer" colorScheme="whatsapp">
-                              Add task
-                            </Button>{" "}
-                            <IconButton
+                          <Box
+                            w="280px"
+                            display="none"
+                            _groupHover={{ display: "block" }}
+                          >
+                            <Flex
+                              flexDirection="row"
+                              justifyContent="space-evenly"
+                            >
+                              <Button 
                               cursor="pointer"
-                              icon={<Icon as={GrPieChart} color="gray" borderColor='gray' stroke='grey'/>}
-                              variant="outline"
-                              color="gray"
-                              aria-label="Call Sage"
-                              fontSize="20px"
-                              stroke='grey'
-                            />
-                            <IconButton
-                              cursor="pointer"
-                              icon={<Icon as={BsThreeDots} />}
-                              variant="outline"
-                              color="gray"
-                              aria-label="Call Sage"
-                              fontSize="20px"
-                            />
-                            <IconButton
-                              cursor="pointer"
-                              icon={<Icon as={BsPlay} />}
-                              variant="outline"
-                              color="gray"
-                              aria-label="Call Sage"
-                              fontSize="20px"
-                            />{" "}
+                              onClick={handleShowTask} 
+                              colorScheme="whatsapp">
+                                Add task
+                              </Button>{" "}
+                              <IconButton
+                                cursor="pointer"
+                                icon={
+                                  <Icon
+                                    as={GrPieChart}
+                                    color="gray"
+                                    borderColor="gray"
+                                    stroke="grey"
+                                  />
+                                }
+                                variant="outline"
+                                color="gray"
+                                aria-label="Call Sage"
+                                fontSize="20px"
+                                stroke="grey"
+                              />
+                              <IconButton
+                                cursor="pointer"
+                                icon={<Icon as={BsThreeDots} />}
+                                variant="outline"
+                                color="gray"
+                                aria-label="Call Sage"
+                                fontSize="20px"
+                              />
+                              <IconButton
+                                onClick={onOpen}
+                                cursor="pointer"
+                                icon={<Icon as={BsPlay} />}
+                                variant="outline"
+                                // color="gray"
+                                aria-label="Call Sage"
+                                fontSize="20px"
+                                color="white"
+                                bg="#4bb063"
+                                _hover={{ bg: "#4bb063" }}
+                              />{" "}
                             </Flex>
                           </Box>
                         </Flex>
                       </AccordionButton>
                     </h2>
-                    <AccordionPanel p="0">
+                    <AccordionPanel
+                      p="2"
+                      _hover={{ bg: "whitesmoke", cursor: "pointer" }}
+                    >
                       <Box
                         color="gray"
                         borderRadius="4px"
-                        // pr='1rem'
-                        // mr='1rem'
-                        // ml="1.2rem"
-                        w="620px"
-                        h="52px"
-                        border="1px solid lightgrey"
-                      ></Box>
+                        w="618px"
+                        h="40px"
+                        role="group"
+                        p="1"
+                      >
+                        <Flex
+                          w="600px"
+                          flexDirection="row"
+                          justifyContent="space-around"
+                        >
+                          <Box flex="1" textAlign="left" w="300px">
+                            <Flex>
+                              <Icon
+                                ml="4.4rem"
+                                mt="0.6rem"
+                                viewBox="0 0 200 200"
+                                color="green.500"
+                              >
+                                <path
+                                  fill="currentColor"
+                                  d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                                />
+                              </Icon>
+                              <Text ml="0.4rem" mt="0.2rem">
+                                Task 2 title
+                              </Text>
+                            </Flex>
+                          </Box>
+
+                          <Box
+                            // pt='2'
+                            w="280px"
+                            display="none"
+                            _groupHover={{ display: "block" }}
+                          >
+                            <Flex
+                              flexDirection="row"
+                              justifyContent="space-evenly"
+                            >
+                              <Button 
+                              cursor="pointer" 
+                              onClick={handleShowTask}
+                              colorScheme="whatsapp">
+                                Add task
+                              </Button>{" "}
+                              <IconButton
+                                cursor="pointer"
+                                icon={
+                                  <Icon
+                                    as={GrPieChart}
+                                    color="gray"
+                                    borderColor="gray"
+                                    stroke="grey"
+                                  />
+                                }
+                                variant="outline"
+                                color="gray"
+                                aria-label="Call Sage"
+                                fontSize="20px"
+                                stroke="grey"
+                              />
+                              <IconButton
+                                cursor="pointer"
+                                icon={<Icon as={BsThreeDots} />}
+                                variant="outline"
+                                color="gray"
+                                aria-label="Call Sage"
+                                fontSize="20px"
+                              />
+                              <IconButton
+                                cursor="pointer"
+                                icon={<Icon as={BsPlay} />}
+                                variant="outline"
+                                // color="gray"
+                                aria-label="Call Sage"
+                                fontSize="20px"
+                                bg="#4bb063"
+                                color="white"
+                                _hover={{ bg: "#4bb063" }}
+                              />{" "}
+                            </Flex>
+                          </Box>
+                        </Flex>
+                      </Box>
                     </AccordionPanel>
                   </AccordionItem>
                 </Accordion>
@@ -133,22 +257,141 @@ const TaskList = () => {
           {/* Right Side Add/Edit Section */}
           <Box
             w="490px"
-            h="463px"
+            h="auto"
             // border="1px solid red"
             mr="6rem"
             p="2"
           >
             <Box
-              color="lightgray"
+              color="gray"
               borderRadius="4px"
               ml="1rem"
-              w="453px"
-              h="100px"
+              w="490px"
+              // h="auto"
+              h="400px"
               border="1px solid lightgrey"
+              p="4"
+              overflow="scroll"
+              overflowX="hidden"
             >
-              <Text mt="2rem" color="lightgray">
-                Choose project or task to edit
-              </Text>
+              {textBox === true ? (
+                <Box scrollBehavior='none' h='100px'>
+                <Text mt="2rem" color="lightgray">
+                  Choose project or task to edit
+                </Text>
+                </Box>
+              ) : (
+                <Box
+                  w="453px"
+                  // h="200px"
+                >
+                  <Box
+                    w="446px"
+                    // h="20px"
+                  >
+                    <Flex justifyContent="space-between">
+                      <Text>Add Task</Text>
+                      {/* <CloseButton onClick={() => handleClose} /> */}
+                      <Button onClick={handleClose}>X</Button>
+                    </Flex>
+                  </Box>
+
+                  <Box
+                    w="446px"
+                    // h="20px"
+                    mb="0.4rem"
+                  >
+                    <FormControl>
+                      <FormLabel>First Project/</FormLabel>
+                      <Input type="Task name..." />
+
+                      <FormLabel>Description</FormLabel>
+                      <Input type="To add description first save your task" />
+                    </FormControl>
+                  </Box>
+
+                  <Divider mt="0.4rem"></Divider>
+
+                  <Box
+                    w="446px"
+                    // h="20px"
+                    mb="0.8rem"
+                  >
+                    <FormControl>
+                      <FormLabel>Budget</FormLabel>
+                      <Flex justifyContent="space-around">
+                        <Select placeholder="Estimated hours" w="280px">
+                          <option>Estimated hours</option>
+                          <option>Estimated fee</option>
+                        </Select>
+                        <Input
+                          w="160px"
+                          type="To add description first save your task"
+                        />
+                      </Flex>
+                    </FormControl>
+                  </Box>
+
+                  <Box
+                    w="446px"
+                    // h="20px"
+                    mb="0.8rem"
+                  >
+                    <Flex alignItems="flex-start">
+                      <Checkbox defaultChecked>
+                        Time from this task is billable by default
+                      </Checkbox>
+                    </Flex>
+                  </Box>
+
+                  <Divider mb="0.8rem"></Divider>
+
+                  <Box
+                    w="446px"
+                    // h="20px"
+                  >
+                    <FormLabel>Tags</FormLabel>
+                    {/* <Text>Tags</Text> */}
+                  </Box>
+
+                  <Box w="446px" mb="0.8rem">
+                    <Flex justifyContent="space-around">
+                      <Text mt="1.2rem" fontSize="12px">
+                        All tags allowed to be selected when users track time.
+                      </Text>
+                      <Button colorScheme="grey" variant="outline">
+                        Define tag list
+                      </Button>
+                    </Flex>
+                  </Box>
+
+                  <Box
+                    w="446px"
+                    // h="20px"
+                    mb="0.8rem"
+                  >
+                    <Button w="100%" colorScheme="grey" variant="outline">
+                      Enable keywords
+                    </Button>
+                  </Box>
+
+                  <Divider></Divider>
+
+                  <Box
+                    w="446px"
+                    // h="20px"
+                  >
+                    <Flex flexDirection="row" alignItems="flex-start">
+                      <Button colorScheme="whatsapp" variant="solid">
+                        Add Task
+                      </Button>
+                      <Button ml="0.8rem" colorScheme="grey" variant="outline">
+                        Cancel
+                      </Button>
+                    </Flex>
+                  </Box>
+                </Box>
+              )}
             </Box>
           </Box>
         </Flex>
