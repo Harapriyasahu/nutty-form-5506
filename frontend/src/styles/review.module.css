@@ -1,0 +1,61 @@
+.Head{
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.Head>p{
+    margin-top: 100px;
+    font-size: 14px;
+    color: #25cf60;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.Head>h2{
+    font-size: 36px;
+    font-weight: 700;
+    padding: 0 24%;
+}
+
+.Heading{
+    display: flex;
+    justify-content: center;
+    gap: 12%;
+    margin: 40px 0;
+}
+
+.P{
+    font-weight: 500;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #25cf60;
+}
+
+.Reviews{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    padding: 0 20px;
+    margin-top: 80px;
+}
+
+.Reviews>div{
+    width: 22%;
+    padding: 20px;
+}
+
+.Spl{
+    background-color: #f3f3f3;
+    border-radius: 20px;
+}
+
+.IMG{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 100px 0;
+}
+
+.IMG>img{
+    width: 150px;
+    height: 75px;
+}
