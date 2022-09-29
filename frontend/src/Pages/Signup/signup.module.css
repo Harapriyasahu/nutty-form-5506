@@ -1,0 +1,72 @@
+.signupdiv {
+  width: 40%;
+  margin: auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 30px;
+  margin-top: 70px;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.heading {
+  font-size: 37px;
+  font-weight: 700;
+  padding-top: 40px;
+}
+
+.subheading {
+  font-size: 25px;
+  width: 70%;
+  color: #8f7e77;
+  font-weight: 700;
+  margin: auto;
+  margin-top: 12px;
+}
+
+.subsubheading {
+  font-size: 16px;
+  font-weight: 500;
+  color: #767676;
+  margin-top: 15px;
+}
+
+.googlebtn {
+  width: 75%;
+  margin: auto;
+  height: 40px;
+  border: 0.1px solid silver;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.googlelogo {
+  font-size: 30px;
+}
+
+.googletext {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.inputdiv {
+  margin: auto;
+  width: 75%;
+  margin-top: 20px;
+}
+
+.note {
+  color: gray;
+  font-size: 14px;
+  width: 65%;
+  text-align: left;
+  margin: auto;
+  margin-top: 20px;
+}
+
+
+
