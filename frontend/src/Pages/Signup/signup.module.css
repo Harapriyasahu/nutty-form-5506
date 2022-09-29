@@ -53,12 +53,6 @@
   font-weight: 700;
 }
 
-.inputdiv {
-  margin: auto;
-  width: 75%;
-  margin-top: 20px;
-}
-
 .note {
   color: gray;
   font-size: 14px;
@@ -68,5 +62,105 @@
   margin-top: 20px;
 }
 
+@media (min-width: 414px) and (max-width: 896px) {
+  .signupdiv {
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+  }
 
+  .note {
+    color: gray;
+    font-size: 14px;
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+  }
 
+  .subheading {
+    font-size: 16px;
+    width: 90%;
+    color: #8f7e77;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 412px) and (max-width: 915px) {
+  .signupdiv {
+    width: 90%;
+  }
+
+  .subheading {
+    font-size: 16px;
+    width: 85%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .signupdiv {
+    width: 65%;
+  }
+
+  .heading {
+    font-size: 37px;
+    font-weight: 700;
+    padding-top: 30px;
+  }
+
+  .subheading {
+    font-size: 25px;
+    width: 80%;
+  }
+
+  .note {
+    color: gray;
+    font-size: 14px;
+    width: 70%;
+  }
+}
+
+@media (min-width: 280px) and (max-width: 653px) {
+  .signupdiv {
+    width: 90%;
+  }
+
+  .heading {
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: 40px;
+    width: 80%;
+    margin: auto;
+    line-height: 30px;
+  }
+
+  .subheading {
+    font-size: 16px;
+    width: 70%;
+  }
+
+  .subsubheading {
+    font-size: 14px;
+  }
+
+  .googlebtn {
+    width: 75%;
+    margin: auto;
+  }
+
+  .googlelogo {
+    font-size: 30px;
+  }
+
+  .googletext {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .note {
+    font-size: 14px;
+    width: 65%;
+  }
+}
