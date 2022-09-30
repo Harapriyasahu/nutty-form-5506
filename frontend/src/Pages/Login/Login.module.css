@@ -1,12 +1,10 @@
-
-
-  .subheading{
-    font-size: 24px;
-    width:60%;
-    font-weight: 700;
-    margin-top: 10px;
-    color:#767676
-  }
+.subheading {
+  font-size: 24px;
+  width: 60%;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #767676;
+}
 
 .addchromebtn {
   margin-top: 15px;
@@ -29,10 +27,10 @@
   font-size: 14px;
 }
 
-/* Left Section ended */
+/*---------------------- Left Section ended------------------------------------- */
 
 .logindiv {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 42%;
   border-radius: 20px;
   text-align: center;
@@ -69,7 +67,3 @@
   font-weight: lighter;
   width: 25%;
 }
-
-
-
-
