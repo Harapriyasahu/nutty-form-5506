@@ -49,4 +49,46 @@ taskRouter.post("/:projectId/create", async (req,res) => {
     
 });
 
+
+
+taskRouter.patch("/update/:taskId", async (req,res) => {
+    const {taskId} = req.params;
+
+    const foundTask = await TaskModel.findOne({_id:taskId})
+    
+    if(foundTask){
+        await TagModel.findByIdAndUpdate(
+            { _id: taskId,  },
+            req.body,
+            { new: true }
+          );
+          return res.send({ message: "Update success", status: "success" });
+        } else {
+          return res
+            .staus(400)
+            .send({ message: "Couldn't found the tag", status: "error" });
+        }
+})
+
+
+
+taskRouter.delete("/delete/:taskId", async (req,res) => {
+    const {taskId} = req.params;
+
+    const foundTask = await TaskModel.findOne({_id:taskId})
+    
+    if(foundTask){
+        await TaskModel.deleteOne({_id:taskId});
+        return res
+        .status(200)
+        .send({ message: "task deleted successfully", status: "success" });
+    } else {
+      return res.status(404).send({
+        message: "Couldn't found the task",
+        status: "error",
+      });
+    }
+})
+
+
 module.exports = taskRouter;
