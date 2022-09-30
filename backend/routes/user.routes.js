@@ -26,14 +26,14 @@ userRouter.post("/signup", async (req, res) => {
 
           return res.status(201).send({
             message: "Signup Sussessfull",
-            status: "Success",
+            status: "success",
             user: newUser,
           });
         })
         .catch((err) => {
           // console.log(err);
 
-          res
+          return res
             .status(400)
             .send({ status: "Failed", message: "Unable to Register" });
         });
@@ -49,13 +49,13 @@ userRouter.post("/login", async (req, res) => {
     if (email && password) {
       const user = await UserModel.findOne({ email });
       //   console.log(user);
-      if(user){
+      if (user) {
         let hash = user.password;
         bcrypt.compare(password, hash, function (err, result) {
           if (err) {
             return res.send({
               message: "Something went wrong, plz try again later",
-              status: "Failed",
+              status: "error",
             });
           }
           if (result) {
@@ -67,7 +67,7 @@ userRouter.post("/login", async (req, res) => {
               }
             );
             return res.status(200).send({
-              status: "Success",
+              status: "success",
               message: "Login Successfull!!!",
               token: token,
               user: user,
@@ -75,25 +75,24 @@ userRouter.post("/login", async (req, res) => {
           } else {
             return res
               .status(400)
-              .send({ status: "Failed", message: "Invalid Credentials" });
+              .send({ status: "error", message: "Invalid Credentials" });
           }
         });
       } else {
         return res
-        .status(400)
-        .send({ status: "Failed", message: "Invalid Credentials" });
-      }
-      }else{
-        return res
           .status(400)
-          .send({ status: "Failed", message: "All Fields are Required" });
+          .send({ status: "error", message: "Invalid Credentials" });
       }
-    
+    } else {
+      return res
+        .status(400)
+        .send({ status: "error", message: "All Fields are Required" });
+    }
   } catch (err) {
     // console.log(err);
     return res
       .status(400)
-      .send({ status: "Failed", message: "Unable to Login" });
+      .send({ status: "error", message: "Unable to Login" });
   }
 });
 
