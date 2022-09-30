@@ -98,7 +98,7 @@ const Timesheet = () => {
                             <img className='datedivinside1arrow' src="https://cdn-icons-png.flaticon.com/128/2985/2985161.png" alt="" />
                         </button>
                         <button className='datedivinside1middle'>
-                        <Accordion defaultIndex={[0]} allowMultiple>
+                        {/* <Accordion defaultIndex={[0]} allowMultiple>
                          <AccordionItem>
                              <h2>
                          <AccordionButton>
@@ -108,13 +108,12 @@ const Timesheet = () => {
                         </AccordionButton>
                         </h2>
                         <AccordionPanel pb={4}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        <input type="date" />
                         </AccordionPanel>
                         </AccordionItem>
-                        </Accordion>
+                        </Accordion> */}
+
+                        <input type="date" />
                             
                         </button>
                         <button className='datedivinside1left'>
@@ -122,7 +121,7 @@ const Timesheet = () => {
                         </button>
                     </div>
                     <div className='datedivinside2'>
-                        <h2 className='datedivinside2day'>Thursday, 29 September</h2>
+                        {/* <h2 className='datedivinside2day'>Thursday, 29 September</h2> */}
                     </div>
                 </div>
                 <div className='datediv2'>
@@ -168,30 +167,50 @@ const Timesheet = () => {
                 </div>
             </div>
 
+            <div className='taskproject'>
+                <div className='selecttask'>
+                    <input className='selecttaskinput' type="text" placeholder='Select task and Project' />
+                </div>
+                <div className='notediv'>
+                    <input className='notedivinput' type="text" placeholder='note'/>
+                </div>
+                <div className='tasktime'></div>
+                <div className='starttimer'>
+                    <button className='starttimerbuttn'>Start timer</button>
+                </div>
+                <div className='addtimeentry'>
+                    <button className='addtimeentrybttn'>ADD TIME ENTRY</button>
+                </div>
+            </div>
+
             <div className='timings'>
-                <div className='timings1'><p>1 am</p></div>
-                <div className='timings1'><p>2 am</p></div>
-                <div className='timings1'><p>3 am</p></div>
-                <div className='timings1'><p>4 am</p></div>
-                <div className='timings1'><p>5 am</p></div>
-                <div className='timings1'><p>6 am</p></div>
-                <div className='timings1'><p>7 am</p></div>
-                <div className='timings1'><p>8 am</p></div>
-                <div className='timings1'><p>9 am</p></div>
-                <div className='timings1'><p>10 am</p></div>
-                <div className='timings1'><p>11 am</p></div>
-                <div className='timings1'><p>12 pm</p></div>
-                <div className='timings1'><p>1 pm</p></div>
-                <div className='timings1'><p>2 pm</p></div>
-                <div className='timings1'><p>3 pm</p></div>
-                <div className='timings1'><p>4 pm</p></div>
-                <div className='timings1'><p>5 pm</p></div>
-                <div className='timings1'><p>6 pm</p></div>
-                <div className='timings1'><p>7 pm</p></div>
-                <div className='timings1'><p>8 pm</p></div>
-                <div className='timings1'><p>9 pm</p></div>
+                <div className='timings1'><p>1am</p></div>
+                <div className='timings1'><p>2am</p></div>
+                <div className='timings1'><p>3am</p></div>
+                <div className='timings1'><p>4am</p></div>
+                <div className='timings1'><p>5am</p></div>
+                <div className='timings1'><p>6am</p></div>
+                <div className='timings1'><p>7am</p></div>
+                <div className='timings1'><p>8am</p></div>
+                <div className='timings1'><p>9am</p></div>
+                <div className='timings1'><p>10am</p></div>
+                <div className='timings1'><p>11am</p></div>
+                <div className='timings1'><p>12pm</p></div>
+                <div className='timings1'><p>1pm</p></div>
+                <div className='timings1'><p>2pm</p></div>
+                <div className='timings1'><p>3pm</p></div>
+                <div className='timings1'><p>4pm</p></div>
+                <div className='timings1'><p>5pm</p></div>
+                <div className='timings1'><p>6pm</p></div>
+                <div className='timings1'><p>7pm</p></div>
+                <div className='timings1'><p>8pm</p></div>
+                <div className='timings1'><p>9pm</p></div>
                 <div className='timings1'><p>10pm</p></div>
-                <div className='timings1'><p>11 pm</p></div>
+                <div className='timings1'><p>11pm</p></div>
+            </div>
+
+            <div className='entries'>
+
             </div>
 
         </div>
