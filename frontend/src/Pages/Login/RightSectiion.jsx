@@ -27,10 +27,11 @@ const RightSectiion = () => {
       .post(`/login`, user)
       .then((res) => {
         console.log(res.data);
-        if (res.data) {
-          console.log(res.data);
+        if (res.data.token) {
+          // console.log(res.data);
+         
           dispatch(loginSuccess(res.data));
-          notify(toast, 'Login Successfully', 'success');
+          notify(toast, res.data.message, "success", "bottom");
           navigate("/");
         }
       })
