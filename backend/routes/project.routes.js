@@ -11,8 +11,8 @@ projectRouter.use(checkUserAuth);
 /* --------------For getting the all Projects------------------ */
 
 projectRouter.get("/", async (req, res) => {
-
-  const foundProject = await ProjectModel.find({ req.body.userId });
+const userId = req.body.userId;
+  const foundProject = await ProjectModel.find({ _id:userId });
   if (foundProject.length > 0) {
     res.send(foundProject);
   } else {
