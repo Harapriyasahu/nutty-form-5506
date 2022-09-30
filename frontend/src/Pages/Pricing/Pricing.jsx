@@ -3,7 +3,7 @@ import "./Pricing.css"
 import { Heading ,Button} from '@chakra-ui/react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { useState } from 'react';
-import { Review } from '../../Components/Review';
+import { Review } from '../../Components/review/Review';
 
 const Pricing = () => {
 const [p1,setP1]=useState(true)

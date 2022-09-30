@@ -12,7 +12,7 @@ import {
   Link,
   useDisclosure,
 } from "@chakra-ui/react";
-import styles from "../styles/navvbar.module.css";
+import styles from "./navvbar.module.css";
 import { Link as Routerlink } from "react-router-dom";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { GiHamburgerMenu } from "react-icons/gi";

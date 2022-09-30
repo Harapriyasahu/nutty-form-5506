@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/price.module.css";
+import styles from "./price.module.css";
 
 
 
