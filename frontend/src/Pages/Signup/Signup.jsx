@@ -1,4 +1,4 @@
-import { Box, Button, Input, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Input, Text, useToast, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
 
 import { FcGoogle } from "react-icons/fc";
@@ -12,10 +12,13 @@ import {
   signupRequest,
   signupSuccess,
 } from "../../Redux/auth/action";
+import { notify } from "../../utils/extraFunctions";
 const Signup = () => {
   const [user, setUser] = useState({});
+  console.log("user", user)
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -30,7 +33,9 @@ const Signup = () => {
       .then((res) => {
         console.log(res.data);
         if (res.data) {
+          // console.log(res.data);
           dispatch(signupSuccess(res.data));
+          notify(toast, 'Account Created Successfully', 'success');
           navigate("/login");
         }
       })
@@ -63,6 +68,7 @@ const Signup = () => {
         <VStack spacing={"6"} w="75%" m="auto">
           <Input
             type="text"
+            name="name"
             focusBorderColor="#25cf60"
             placeholder="Enter name"
             marginTop="15px"
@@ -73,6 +79,7 @@ const Signup = () => {
 
           <Input
             type="email"
+            name="email"
             focusBorderColor="#25cf60"
             placeholder=" Enter Email"
             fontWeight="lighter"
@@ -81,6 +88,7 @@ const Signup = () => {
           />
           <Input
             type="password"
+            name="password"
             focusBorderColor="#25cf60"
             placeholder=" Enter password"
             marginTop="15px"

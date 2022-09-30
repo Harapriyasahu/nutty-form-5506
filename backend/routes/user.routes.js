@@ -1,38 +1,49 @@
 const express = require("express");
 const { Router } = require("express");
-const bcrypt = require("bcryptjs");
+var bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
+const { UserModel } = require("../models/userModel");
 require("dotenv").config();
-const { UserModel } = require("../models/userModel.js");
+
 
 const userRouter = Router();
 
 userRouter.post("/signup", async (req, res) => {
+  try{
+  console.log(req.body)
   const { email, password } = req.body;
   const isEmailPresent = await UserModel.findOne({ email });
   // console.log(isEmailPresent);
   if (isEmailPresent) {
     res.status(400).send({ status: "Failed", message: "Email already exists" });
   } else {
-    bcrypt
-      .hash(password, 10)
+    bcrypt.hash(password, 10)
       .then(async function (hash) {
         const newUser = new UserModel({ ...req.body, password: hash });
         await newUser.save();
-        return res.status(201).json({
+  
+        return res.status(201).send({
           message: "Signup Sussessfull",
           status: "Success",
           user: newUser,
         });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+  
         res
           .status(400)
           .send({ status: "Failed", message: "Unable to Register" });
       });
+  }}catch(err){
+    res.send(err);
   }
+
 });
+
+
+
+
 
 userRouter.post("/login", async (req, res) => {
   try{

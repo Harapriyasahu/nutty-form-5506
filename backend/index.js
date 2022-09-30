@@ -13,9 +13,9 @@ app.use(cors());
 app.use("/",userRouter);
 app.use("/projects", projectRouter);
 
-app.get("/",( req,res)=>{
-  res.send("Welcome to backend server home page");
-});
+// app.get("/",( req,res)=>{
+//   res.send("Welcome to backend server home page");
+// });
 
 app.listen(port, async () => {
   try {
