@@ -26,6 +26,9 @@ export const getProject = (params) => (dispatch) => {
     });
 };
 
+
+
+
 export const addProject = (payload) => (dispatch) => {
   dispatch({ type: types.ADD_PROJECT_REQUEST });
 
@@ -42,5 +45,43 @@ export const addProject = (payload) => (dispatch) => {
       dispatch({ type: types.ADD_PROJECT_FAILURE });
     });
 };
+
+
+
+
+export const updateProject = (payload,id) => (dispatch) => {
+    dispatch({type:types.UPDATE_PROJECT_REQUEST})
+    return axios({
+        method: "patch",
+        url: `/projects/edit/${id}`,
+        data: payload,
+        headers: headers,
+      })
+    .then((r) => {
+        return dispatch({type:types.UPDATE_PROJECT_SUCCESS})
+    })
+    .catch((err) => {
+        dispatch({type:types.UPDATE_PROJECT_FAILURE})
+    })
+}
+
+
+export const deleteProject = (id) => (dispatch) => {
+    dispatch({type:types.DELETE_PROJECT_REQUEST})
+
+    return axios({
+        method: "delete",
+        url: `/projects/delete/${id}`,
+        headers: headers,
+      })
+    .then((r) => {
+       return dispatch({type:types.DELETE_PROJECT_SUCCESS})
+    })
+    .catch((err) => {
+        dispatch({type:types.DELETE_PROJECT_FAILURE})
+    })
+}
+
+
 
 
