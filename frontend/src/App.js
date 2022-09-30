@@ -1,21 +1,11 @@
-import './App.css';
-import Timesheet from './Pages/Timesheet';
+import "./App.css";
 
-
-import AllRoutes from './Routes/AllRoutes' ;
-
-
-
-
+import AllRoutes from "./Routes/AllRoutes";
 
 function App() {
   return (
     <div className="App">
-
-        <Timesheet/>
-        
-
-
+      <AllRoutes />
     </div>
   );
 }
