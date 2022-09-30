@@ -10,6 +10,9 @@ const headers = {
   Authorization: `Bearer ${token}`,
 };
 
+
+
+
 export const getProject = (params) => (dispatch) => {
   dispatch({ type: types.GET_PROJECT_REQUEST });
   return axios({
@@ -27,6 +30,21 @@ export const getProject = (params) => (dispatch) => {
 };
 
 
+export const getSingleProject = (id) => (dispatch) => {
+    dispatch({ type: types.GET_PROJECT_REQUEST });
+    return axios({
+      method: "get",
+      url: `/projects/${id}`,
+      headers: headers,
+    })
+      .then((res) => {
+        dispatch({ type: types.GET_PROJECT_SUCCESS, payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: types.GET_PROJECT_FAILURE });
+      });
+  };
+  
 
 
 export const addProject = (payload) => (dispatch) => {
