@@ -1,10 +1,46 @@
-import React from "react";
-import { Box,  Input, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box,  Input, Text, useToast } from "@chakra-ui/react";
 import styles from "./Login.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginFailure, loginRequest, loginSuccess } from "../../Redux/auth/action";
+import axios from "axios";
+import { notify } from "../../utils/extraFunctions";
+
+
 const RightSectiion = () => {
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const toast = useToast();
+
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(loginRequest());
+    axios
+      .post(`/login`, user)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          console.log(res.data);
+          dispatch(loginSuccess(res.data));
+          notify(toast, 'Login Successfully', 'success');
+          navigate("/");
+        }
+      })
+      .catch((err) =>{
+        notify(toast, err.response.data.message, 'error');
+        dispatch(loginFailure())
+      } );
+  };
+
+
 
   return (
     <Box w={{base:"90%", md:"70%",lg:"50%"}} m="auto" className={styles.logindiv}>
@@ -25,12 +61,14 @@ const RightSectiion = () => {
       </Text>
 
       <Box margin="auto" width="75%" marginTop="20px">
-        <Input focusBorderColor="#25cf60" placeholder="email" type="email" />
+        <Input type = "email" name="email" focusBorderColor="#25cf60" placeholder="email"   onChange={handleChange}/>
         <Input
           type="password"
+          name="password"
           focusBorderColor="#25cf60"
           placeholder="password"
           marginTop="15px"
+          onChange={handleChange}
         />
       </Box>
 
@@ -44,6 +82,7 @@ const RightSectiion = () => {
         className={styles.loginbtn}
         backgroundColor="#25cf60"
         cursor="pointer"
+        onClick={handleLogin}
       >
         Log in
       </Text>
