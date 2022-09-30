@@ -4,6 +4,7 @@ const { connection } = require("./config/db.js");
 const { userRouter } = require("./routes/user.routes.js");
 const { projectRouter } = require("./routes/project.routes.js");
 const { tagRouter } = require("./routes/tag.routes.js");
+const taskRouter = require("./routes/Task.routes.js");
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -14,6 +15,7 @@ app.use(cors());
 app.use("/",userRouter);
 app.use("/projects", projectRouter);
 app.use("/tags",tagRouter);
+app.use("/tasks",taskRouter);
 
 app.get("/",( req,res)=>{
   res.send("Welcome to backend server home page");

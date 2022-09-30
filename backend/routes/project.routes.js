@@ -14,7 +14,7 @@ projectRouter.get("/", async (req, res) => {
 const userId = req.body.userId;
   const foundProject = await ProjectModel.find({ _id:userId });
   if (foundProject.length > 0) {
-    res.send(foundProject);
+    res.status(200).send(foundProject);
   } else {
     return res.send({ message: "First create a Project" });
   }
@@ -25,13 +25,13 @@ const userId = req.body.userId;
 
 projectRouter.get("/:projectId", async (req, res) => {
   const { projectId } = req.params;
-  // console.log("id", projectId);
+  // console.log("projectId", projectId);
   const foundProject = await ProjectModel.findById({ _id: projectId });
 
   if (foundProject) {
-    return res.send(project);
+    return res.status(200).send(project);
   } else {
-    return res.send({ message: "Project doesn't exists" });
+    return res.status(404).send({ message: "Project doesn't exists" });
   }
 });
 
@@ -72,7 +72,7 @@ projectRouter.patch("/edit/:projectId", async (req, res) => {
     return res.send({ message: "Update success", status: "success" });
   } else {
     return res
-      .staus(400)
+      .staus(404)
       .send({ message: "Couldn't found the project", status: "error" });
   }
 });
@@ -91,7 +91,7 @@ projectRouter.delete("/delete/:projectId", async (req, res) => {
       .status(200)
       .send({ message: "delete success", status: "success" });
   } else {
-    return res.send({
+    return res.status(404).send({
       message: "Couldn't found the project",
       status: "error",
     });
