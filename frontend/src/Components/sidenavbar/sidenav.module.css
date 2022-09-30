@@ -1,0 +1,28 @@
+.common_outer{
+    border-bottom: 1px solid rgb(193, 192, 192);
+    width: 100%;
+    padding: 8px 2px 10px 20px;
+    text-align: left;
+}
+
+.texxt{
+    padding: 8px 10px;
+    color: rgb(148, 147, 147);
+}
+
+.inner_common_btn{
+    color: rgb(116, 115, 115);
+    width: 100%;
+}
+
+.common_btn{
+    font-size: 24px;
+    color: rgb(120, 119, 119);
+    margin-right: 14px;
+}
+
+.sidebar_btn{
+    position: absolute;
+    top: 30px;
+    left: 90%;
+}
