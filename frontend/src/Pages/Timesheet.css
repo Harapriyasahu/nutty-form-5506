@@ -145,7 +145,7 @@
 .datedivinside1middle{
     border: 1px solid gray;
     height: 40px;
-    width: 60px;
+    width: 200px;
 }
 
 .datedivinside1left{
@@ -203,6 +203,10 @@
     border-bottom-left-radius: 5px;
 }
 
+.datediv2inside1left:hover{
+    background-color: rgb(211, 208, 208);
+}
+
 .datediv2inside1left:focus{
     border: 2px solid green;
     color: green;
@@ -214,6 +218,10 @@
     width: 80px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.datediv2inside1right:hover{
+    background-color: rgb(211, 208, 208);
 }
 
 .datediv2inside1right:focus{
@@ -234,6 +242,10 @@
     border-radius: 5px;
 }
 
+.datediv2inside2:hover{
+    background-color: rgb(211, 208, 208);
+}
+
 .datediv2inside2refresh{
     height: 25px;
     width: 25px;
@@ -250,6 +262,10 @@
     display: flex;
 }
 
+.datediv2inside3:hover{
+    background-color: rgb(211, 208, 208);
+}
+
 .datediv2inside4{
     border: 1px solid gray;
     height: 40px;
@@ -260,6 +276,10 @@
     display: flex;
     font-family: sans-serif;
     font-weight: 500;
+}
+
+.datediv2inside4:hover{
+    background-color: rgb(211, 208, 208);
 }
 
 .datediv2inside4:focus{
@@ -274,6 +294,10 @@
     margin-top: 5px;
     margin-left: 8px;
     border-radius: 5px;
+}
+
+.datediv2inside5:hover{
+    background-color: rgb(211, 208, 208);
 }
 
 .datediv2inside3img{
@@ -326,19 +350,113 @@
 
 .timings{
     /* border: 1px solid blue; */
-    height: 35px;
+    height: 50px;
     width: 100%;
     display: flex;
     margin: auto;
+    margin-top: 10px;
+    /* font-size: 10px; */
 }
 
 .timings1{
     /* border: 1px solid red; */
     height: 20px;
-    width: 4%;
+    width: 5%;
     margin: auto;
-    font-size: 12px;
+    font-size: 8px;
     color: grey;
 }
 
+.taskproject{
+    border: 1px solid green;
+    border-radius: 8px;
+    height: 80px;
+    width: 95%;
+    margin: auto;
+    display: flex;
+}
 
+.selecttask{
+    /* border: 1px solid red; */
+    height: 60px;
+    width: 300px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.notediv{
+    /* border: 1px solid blue; */
+    height: 60px;
+    width: 100px;
+    margin-top: 5px;
+    justify-content: space-evenly;
+}
+
+.tasktime{
+    /* border: 1px solid blue; */
+    height: 60px;
+    width: 350px;
+    margin-top: 5px;
+}
+
+.starttimer{
+    /* border: 1px solid blue; */
+    height: 60px;
+    width: 100px;
+    margin-top: 5px;
+}
+
+.addtimeentry{
+    /* border: 1px solid blue; */
+    height: 60px;
+    width: 150px;
+    margin-top: 5px;
+}
+
+.selecttaskinput{
+    /* border: 1px solid red; */
+    height: 55px;
+    width: 280px;
+}
+
+.notedivinput{
+    height: 55px;
+    width: 80px;
+}
+
+.starttimerbuttn{
+    height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    color: blue;
+    border: 0;
+    margin-top: 15px;
+}
+
+.starttimerbuttn:hover{
+    text-decoration: underline;
+}
+
+.addtimeentrybttn{
+    border: 1px solid rgb(13, 209, 13);
+    height: 40px;
+    width: 130px;
+    padding: 8px;
+    font-size: 14px;
+    margin-top: 7px;
+    background-color: rgb(13, 209, 13);
+    border-radius: 7px;
+    color: white;
+    font-weight: 600;
+}
+
+.addtimeentrybttn:hover{
+    background-color: rgb(135, 211, 20);
+}
+
+.entries{
+    border: 1px solid green;
+    height: 450px;
+    width: 100%;
+    margin-top: 10px;
+}
