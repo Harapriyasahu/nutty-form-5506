@@ -7,9 +7,10 @@ const tagSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    userId: { type: String, required: true },
   },
   { versionKey: false, timestamps: true }
 );
 
 const TagModel = mongoose.model("tag", tagSchema);
-module.exports = { UserModel };
+module.exports = { TagModel };

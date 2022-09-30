@@ -16,7 +16,7 @@ const userId = req.body.userId;
   if (foundProject.length > 0) {
     res.send(foundProject);
   } else {
-    return res.send({ message: "failed" });
+    return res.send({ message: "First create a Project" });
   }
 });
 
@@ -25,13 +25,13 @@ const userId = req.body.userId;
 
 projectRouter.get("/:projectId", async (req, res) => {
   const { projectId } = req.params;
-  console.log("id", id);
+  // console.log("id", projectId);
   const foundProject = await ProjectModel.findById({ _id: projectId });
 
   if (foundProject) {
     return res.send(project);
   } else {
-    return res.send({ message: "failed" });
+    return res.send({ message: "Project doesn't exists" });
   }
 });
 
@@ -50,7 +50,7 @@ projectRouter.post("/create", async (req, res) => {
   await newProject.save();
   return res.status(201).json({
     message: "Project created",
-    status: "Success",
+    status: "success",
     project: newProject,
   });
 });
@@ -69,11 +69,11 @@ projectRouter.patch("/edit/:projectId", async (req, res) => {
       req.body,
       { new: true }
     );
-    return res.send({ message: "Update success", status: "Success" });
+    return res.send({ message: "Update success", status: "success" });
   } else {
     return res
       .staus(400)
-      .send({ message: "Couldn't found the product", status: "failed" });
+      .send({ message: "Couldn't found the project", status: "error" });
   }
 });
 
@@ -89,11 +89,11 @@ projectRouter.delete("/delete/:projectId", async (req, res) => {
     await ProjectModel.deleteOne({ _id: projectId });
     return res
       .status(200)
-      .send({ message: "delete success", status: "Success" });
+      .send({ message: "delete success", status: "success" });
   } else {
     return res.send({
-      message: "Couldn't found the product",
-      status: "failed",
+      message: "Couldn't found the project",
+      status: "error",
     });
   }
 });
