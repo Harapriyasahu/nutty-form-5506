@@ -6,7 +6,7 @@ export const Review = () => {
   return (
     <div>
       <div className={styles.Head}>
-        <p>REVIEWS</p>
+        <p></p>
         <h2>
           Time tracking software for businesses across all industries and sizes
         </h2>
