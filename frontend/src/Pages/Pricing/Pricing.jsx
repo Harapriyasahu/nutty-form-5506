@@ -3,7 +3,7 @@ import "./Pricing.css"
 import { Heading ,Button} from '@chakra-ui/react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { useState } from 'react';
-
+import { Review } from '../../Components/Review';
 
 const Pricing = () => {
 const [p1,setP1]=useState(true)
@@ -183,6 +183,7 @@ console.log(p1,p2)
    </div>
       <div id='mytime'>
         <img src="https://scontent.fbek1-3.fna.fbcdn.net/v/t39.30808-6/309496892_526288336167419_4692006231252640386_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=730e14&_nc_ohc=um4nfh-9b-UAX--0Aok&_nc_ht=scontent.fbek1-3.fna&oh=00_AT8K7ER5rUsxvpJ68d-Aw__sbdY_kAzpVyQQXpK7h-dkfA&oe=633B5D55" alt="image" />
+     <Review/>
       </div>
     </div>
   )
