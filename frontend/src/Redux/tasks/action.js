@@ -25,11 +25,10 @@ export const getTask = (id) => (dispatch) => {
     });
 };
 
-
 export const addTask = (payload, id) => (dispatch) => {
   dispatch({ type: types.ADD_TASK_REQUEST });
   return axios({
-    method: "get",
+    method: "post",
     url: `/tasks/${id}/create`,
     data: payload,
     headers: headers,
@@ -40,5 +39,36 @@ export const addTask = (payload, id) => (dispatch) => {
     .catch((err) => {
       console.log(err);
       dispatch({ type: types.ADD_TASK_FAILURE });
+    });
+};
+
+export const updateTask = (payload, id) => (dispatch) => {
+  dispatch({ type: types.UPDATE_TASK_REQUEST });
+  return axios({
+    method: "patch",
+    url: `/tasks/update/${id}`,
+    data: payload,
+    headers: headers,
+  })
+    .then((res) => {
+      dispatch({ type: types.UPDATE_TASK_SUCCESS });
+    })
+    .catch((err) => {
+      dispatch({ type: types.UPDATE_TASK_FAILURE });
+    });
+};
+
+export const deleteTask = (id) => (dispatch) => {
+  dispatch({ type: types.DELETE_TASK_REQUEST });
+  return axios({
+    method: "delete",
+    url: `/tasks/delete/${id}`,
+    headers: headers,
+  })
+    .then((r) => {
+      return dispatch({ type: types.DELETE_TASK_SUCCESS });
+    })
+    .catch((err) => {
+      dispatch({ type: types.DELETE_TASK_FAILURE });
     });
 };
