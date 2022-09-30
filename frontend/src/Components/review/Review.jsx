@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "../styles/review.module.css";
+import styles from "./review.module.css";
 
 
 export const Review = () => {
   return (
     <div>
       <div className={styles.Head}>
-        <p></p>
+        <p>REVIEWS</p>
         <h2>
           Time tracking software for businesses across all industries and sizes
         </h2>

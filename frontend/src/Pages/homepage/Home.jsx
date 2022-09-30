@@ -1,11 +1,11 @@
 import React from 'react'
-import Navvbar from '../Components/Navvbar'
-import {Employee} from "../Components/Employee"
-import {Review} from "../Components/Review"
-import Price from  "../Components/Price"
-import Accordion from "./../Components/acordion/Accordion"
-import Footer from '../Components/Footer'
-import styles from "../styles/home.module.css"
+import Navvbar from '../../Components/main_navbar/Navvbar'
+import {Employee} from "../../Components/employee/Employee"
+import {Review} from "../../Components/review/Review"
+import Price from  "../../Components/home_price/Price"
+import Accordion from "../../Components/acordion/Accordion"
+import Footer from '../../Components/footer/Footer'
+import styles from "./home.module.css"
 // import Projects from './Projects'
 
 const Home = () => {
