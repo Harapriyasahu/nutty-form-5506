@@ -22,7 +22,7 @@ const AllRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgotten_password" element={<Forgotpassword/>} />
-      <Route path="/reset-password/" element={<ResetPassword />} />
+      <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
 
       <Route path='/app' element={<Sidenav />}>
 

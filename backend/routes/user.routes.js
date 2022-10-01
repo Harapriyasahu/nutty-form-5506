@@ -4,6 +4,7 @@ var bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { UserModel } = require("../models/userModel");
 require("dotenv").config();
+const { transporter } = require("../config/emailConfig.js");
 
 const userRouter = Router();
 
@@ -104,7 +105,7 @@ userRouter.post("/forgotten_password", async (req, res) => {
       const token = jwt.sign({ userID: user._id }, process.env.JWT_SECRET_KEY, {
         expiresIn: "15m",
       });
-      const link = `http://localhost:3000/api/reset-password/${user._id}/${token}`;
+      const link = `http://localhost:3001/reset-password/${user._id}/${token}`;
 
       console.log(link);
 
@@ -112,7 +113,7 @@ userRouter.post("/forgotten_password", async (req, res) => {
         from: process.env.EMAIL_FROM,
         to: user.email,
         subject: "TimeCamp - Password Reset Link",
-        html: `It seems you have forgotten your TimeCamp password. That's OK, it happens to the best of us! Would you like to reset your password:<a href=${link}>Click Here</a> to Reset Your Password
+        html: `It seems you have forgotten your TimeCamp password. That's OK, it happens to the best of us! Would you like to reset your password: <a href=${link}>Click Here</a> to Reset Your Password
           <p> If you do not wish to reset your password, ignore this message. It will expire in 15 minutes.</p>
           `,
       });
@@ -132,32 +133,40 @@ userRouter.post("/forgotten_password", async (req, res) => {
   }
 });
 
-
 userRouter.post("/reset-password/:id/:token", async (req, res) => {
-  const { password, confirmPassword } = req.body
-  const { id, token } = req.params
-  const user = await UserModel.findById({_id:id})
+  const { password, confirmPassword } = req.body;
+  const { id, token } = req.params;
+  const user = await UserModel.findById({ _id: id });
 
   try {
-    jwt.verify(token, process.env.JWT_SECRET_KEY)
+    jwt.verify(token, process.env.JWT_SECRET_KEY);
     if (password && confirmPassword) {
       if (password !== confirmPassword) {
-       return res.status(500).send({ "status": "error", "message": "New Password and Confirm New Password doesn't match" })
+        return res
+          .status(500)
+          .send({
+            status: "error",
+            message: "New Password and Confirm New Password doesn't match",
+          });
       } else {
-        const salt = await bcrypt.genSalt(10)
-        const newHashPassword = await bcrypt.hash(password, salt)
-        await UserModel.findByIdAndUpdate(user._id, { $set: { password: newHashPassword } })
-        res.status(201).send({ "status": "success", "message": "Password Reset Successfully" })
+        const salt = await bcrypt.genSalt(10);
+        const newHashPassword = await bcrypt.hash(password, salt);
+        await UserModel.findByIdAndUpdate(user._id, {
+          $set: { password: newHashPassword },
+        });
+        res
+          .status(201)
+          .send({ status: "success", message: "Password Reset Successfully" });
       }
     } else {
-      res.status(400).send({ "status": "error", "message": "All Fields are Required" })
+      res
+        .status(400)
+        .send({ status: "error", message: "All Fields are Required" });
     }
   } catch (error) {
-    console.log(error)
-    res.status(400).send({ "status": "error", "message": "Invalid Token" })
+    console.log(error);
+    res.status(400).send({ status: "error", message: "Invalid Token" });
   }
-
-})
-
+});
 
 module.exports = { userRouter };
