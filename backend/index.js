@@ -13,7 +13,7 @@ app.use(cors());
 
 
 app.use("/",userRouter);
-app.use("/projects", projectRouter);
+app.use("/app/projects", projectRouter);
 app.use("/tags",tagRouter);
 app.use("/tasks",taskRouter);
 

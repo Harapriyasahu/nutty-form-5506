@@ -12,7 +12,9 @@ projectRouter.use(checkUserAuth);
 
 projectRouter.get("/", async (req, res) => {
 const userId = req.body.userId;
-  const foundProject = await ProjectModel.find({ _id:userId });
+
+  const foundProject = await ProjectModel.find();
+  console.log(foundProject);
   if (foundProject.length > 0) {
     res.status(200).send(foundProject);
   } else {
@@ -36,23 +38,29 @@ projectRouter.get("/:projectId", async (req, res) => {
 });
 
 
+
 /* --------------For creating a project ------------------ */
 
 projectRouter.post("/create", async (req, res) => {
   const { name, userId, email } = req.body;
   // console.log(name,userId);
-  const newProject = new ProjectModel({
-    name,
-    userId,
-    email,
-  });
-
-  await newProject.save();
-  return res.status(201).json({
-    message: "Project created",
-    status: "success",
-    project: newProject,
-  });
+  try{
+    const newProject = new ProjectModel({
+      name,
+      userId,
+      email,
+    });
+  
+    await newProject.save();
+    return res.status(201).json({
+      message: "Project created",
+      status: "success",
+      project: newProject,
+    });
+  }catch(err){
+    res.send(err);
+  }
+ 
 });
 
 

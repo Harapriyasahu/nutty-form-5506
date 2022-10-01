@@ -15,7 +15,7 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Accordion,
   AccordionItem,
@@ -24,28 +24,63 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import { GrPieChart } from "react-icons/gr";
+import { RiDeleteBinLine } from "react-icons/ri";
 import { BsThreeDots, BsPlay } from "react-icons/bs";
 import { CloseButton } from "@chakra-ui/react";
 import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTask, getTask } from "../../Redux/tasks/action";
+import { getProject } from "../../Redux/project/action";
 
-const TaskList = (projects) => {
-
-  console.log(projects.projects);
-
+const TaskList = ({ projectData }) => {
+  const dispatch = useDispatch();
+  console.log(projectData);
+  const [task, setTask] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const [projectId, setprojectId] = useState("");
   const [textBox, setTextBox] = useState(false);
   const [editBox, setEditBox] = useState(false);
   const [closeTextBox, setCloseTextBox] = useState(false);
   const [closeEditBox, setCloseEditBox] = useState(false);
+  const [taskID, setTaskID] = useState("");
+  const { tasksData } = useSelector((store) => store.TaskReducer);
+  console.log("tasksData", tasksData);
+
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setTask({ ...task, [name]: value });
+  };
+
+  const handleTask = () => {
+    if (task) {
+      dispatch(addTask(task, projectId)).then(() =>
+        dispatch(getTask(projectId))
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (projectData.length === 0) {
+      dispatch(getProject());
+    }
+  }, [projectData.length]);
+
+  useEffect(() => {
+    if (tasksData.length === 0) {
+      // dispatch(getTask());
+    }
+  }, [tasksData.length]);
+
+
 
   const handleClose = () => {
     setTextBox(false);
     setCloseTextBox(false);
   };
 
-  const handleShowTask = () => {
+  const handleShowTask = (id) => {
+    setprojectId(id);
     if (editBox === true) {
       setEditBox(false);
     }
@@ -98,199 +133,216 @@ const TaskList = (projects) => {
             >
               {
                 // Loop over each projects
-                (projects.projects !== '' || projects.projects !== null) ?
+                projectData ? (
+                  projectData.map((project) => {
+                    return (
+                      <Box key={project.name}>
+                        <Accordion defaultIndex={[0]} allowMultiple>
+                          <AccordionItem>
+                            <h2>
+                              <AccordionButton role="group">
+                                <Flex
+                                  w="618px"
+                                  flexDirection="row"
+                                  justifyContent="space-around"
+                                  h="40px"
+                                >
+                                  <Box flex="1" textAlign="left" w="300px">
+                                    <Flex>
+                                      <AccordionIcon mt="0.4rem" mr="1rem" />
+                                      <Icon
+                                        mr="0.4rem"
+                                        mt="0.6rem"
+                                        viewBox="0 0 200 200"
+                                        color="orange.400"
+                                      >
+                                        <path
+                                          fill="currentColor"
+                                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                                        />
+                                      </Icon>
+                                      {/* <Text mt="0.2rem">Project 2 title</Text> */}
+                                      <Text mt="0.2rem">{project.name}</Text>
+                                    </Flex>
+                                  </Box>
 
-                projects.projects.map( (project) => {
-                  console.log(project)
-                  return (<Accordion defaultIndex={[0]} allowMultiple>
-                  <AccordionItem>
-                    <h2>
-                      <AccordionButton role="group">
-                        <Flex
-                          w="618px"
-                          flexDirection="row"
-                          justifyContent="space-around"
-                          h="40px"
-                        >
-                          <Box flex="1" textAlign="left" w="300px">
-                            <Flex>
-                              <AccordionIcon mt="0.4rem" mr="1rem" />
-                              <Icon
-                                mr="0.4rem"
-                                mt="0.6rem"
-                                viewBox="0 0 200 200"
-                                color="orange.400"
-                              >
-                                <path
-                                  fill="currentColor"
-                                  d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-                                />
-                              </Icon>
-                              {/* <Text mt="0.2rem">Project 2 title</Text> */}
-                              <Text mt="0.2rem">{project}</Text>
-                            </Flex>
-                          </Box>
-
-                          <Box
-                            w="280px"
-                            display="none"
-                            _groupHover={{ display: "block" }}
-                          >
-                            <Flex
-                              flexDirection="row"
-                              justifyContent="space-evenly"
+                                  <Box
+                                    w="280px"
+                                    display="none"
+                                    _groupHover={{ display: "block" }}
+                                  >
+                                    <Flex
+                                      flexDirection="row"
+                                      justifyContent="space-evenly"
+                                    >
+                                      <Button
+                                        cursor="pointer"
+                                        onClick={() =>
+                                          handleShowTask(project._id)
+                                        }
+                                        colorScheme="whatsapp"
+                                      >
+                                        Add task
+                                      </Button>{" "}
+                                      <IconButton
+                                        cursor="pointer"
+                                        icon={
+                                          <Icon
+                                            as={RiDeleteBinLine}
+                                            color="gray"
+                                            borderColor="gray"
+                                            stroke="grey"
+                                          />
+                                        }
+                                        variant="outline"
+                                        color="gray"
+                                        aria-label="Call Sage"
+                                        fontSize="20px"
+                                        stroke="grey"
+                                      />
+                                      <IconButton
+                                        onClick={handleEditShowTask}
+                                        cursor="pointer"
+                                        icon={<Icon as={BsThreeDots} />}
+                                        variant="outline"
+                                        color="gray"
+                                        aria-label="Call Sage"
+                                        fontSize="20px"
+                                      />
+                                      <IconButton
+                                        onClick={onOpen}
+                                        cursor="pointer"
+                                        icon={<Icon as={BsPlay} />}
+                                        variant="outline"
+                                        // color="gray"
+                                        aria-label="Call Sage"
+                                        fontSize="20px"
+                                        color="white"
+                                        bg="#4bb063"
+                                        _hover={{ bg: "#4bb063" }}
+                                      />{" "}
+                                    </Flex>
+                                  </Box>
+                                </Flex>
+                              </AccordionButton>
+                            </h2>
+                            <AccordionPanel
+                              p="2"
+                              _hover={{ bg: "whitesmoke", cursor: "pointer" }}
                             >
-                              <Button
-                                cursor="pointer"
-                                onClick={handleShowTask}
-                                colorScheme="whatsapp"
-                              >
-                                Add task
-                              </Button>{" "}
-                              <IconButton
-                                cursor="pointer"
-                                icon={
-                                  <Icon
-                                    as={GrPieChart}
-                                    color="gray"
-                                    borderColor="gray"
-                                    stroke="grey"
-                                  />
-                                }
-                                variant="outline"
+                              <Box
                                 color="gray"
-                                aria-label="Call Sage"
-                                fontSize="20px"
-                                stroke="grey"
-                              />
-                              <IconButton
-                                onClick={handleEditShowTask}
-                                cursor="pointer"
-                                icon={<Icon as={BsThreeDots} />}
-                                variant="outline"
-                                color="gray"
-                                aria-label="Call Sage"
-                                fontSize="20px"
-                              />
-                              <IconButton
-                                onClick={onOpen}
-                                cursor="pointer"
-                                icon={<Icon as={BsPlay} />}
-                                variant="outline"
-                                // color="gray"
-                                aria-label="Call Sage"
-                                fontSize="20px"
-                                color="white"
-                                bg="#4bb063"
-                                _hover={{ bg: "#4bb063" }}
-                              />{" "}
-                            </Flex>
-                          </Box>
-                        </Flex>
-                      </AccordionButton>
-                    </h2>
-                    <AccordionPanel
-                      p="2"
-                      _hover={{ bg: "whitesmoke", cursor: "pointer" }}
-                    >
-                      <Box
-                        color="gray"
-                        borderRadius="4px"
-                        w="618px"
-                        h="40px"
-                        role="group"
-                        p="1"
-                      >
-                        <Flex
-                          w="600px"
-                          flexDirection="row"
-                          justifyContent="space-around"
-                        >
-                          <Box flex="1" textAlign="left" w="300px">
-                            <Flex>
-                              <Icon
-                                ml="4.4rem"
-                                mt="0.6rem"
-                                viewBox="0 0 200 200"
-                                color="green.500"
+                                borderRadius="4px"
+                                w="618px"
+                                minH="40px"
+                                role="group"
+                                p="1"
                               >
-                                <path
-                                  fill="currentColor"
-                                  d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-                                />
-                              </Icon>
-                              <Text ml="0.4rem" mt="0.2rem">
-                                Task 2 title
-                              </Text>
-                            </Flex>
-                          </Box>
+                                <Flex
+                                  w="600px"
+                                  flexDirection="row"
+                                  justifyContent="space-around"
+                                >
+                                  <Box flex="1" textAlign="left" w="300px">
+                                    <Flex>
+                                      <Icon
+                                        ml="4.4rem"
+                                        mt="0.6rem"
+                                        viewBox="0 0 200 200"
+                                        color="green.500"
+                                      >
+                                        <path
+                                          fill="currentColor"
+                                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                                        />
+                                      </Icon>
 
-                          <Box
-                            // pt='2'
-                            w="280px"
-                            display="none"
-                            _groupHover={{ display: "block" }}
-                          >
-                            <Flex
-                              flexDirection="row"
-                              justifyContent="space-evenly"
-                            >
-                              <Button
-                                cursor="pointer"
-                                onClick={handleShowTask}
-                                colorScheme="whatsapp"
-                              >
-                                Add task
-                              </Button>{" "}
-                              <IconButton
-                                cursor="pointer"
-                                icon={
-                                  <Icon
-                                    as={GrPieChart}
-                                    color="gray"
-                                    borderColor="gray"
-                                    stroke="grey"
-                                  />
-                                }
-                                variant="outline"
-                                color="gray"
-                                aria-label="Call Sage"
-                                fontSize="20px"
-                                stroke="grey"
-                              />
-                              <IconButton
-                                onClick={handleEditShowTask}
-                                cursor="pointer"
-                                icon={<Icon as={BsThreeDots} />}
-                                variant="outline"
-                                color="gray"
-                                aria-label="Call Sage"
-                                fontSize="20px"
-                              />
-                              <IconButton
-                                cursor="pointer"
-                                icon={<Icon as={BsPlay} />}
-                                variant="outline"
-                                // color="gray"
-                                aria-label="Call Sage"
-                                fontSize="20px"
-                                bg="#4bb063"
-                                color="white"
-                                _hover={{ bg: "#4bb063" }}
-                              />{" "}
-                            </Flex>
-                          </Box>
-                        </Flex>
+                                      {tasksData &&
+                                        tasksData.map((el) => {
+                                          setTaskID(el._id);
+                                          return (
+                                            <Text key={el._id}>
+                                              {" "}
+                                              {el.title}{" "}
+                                            </Text>
+                                          );
+                                        })}
+                                    </Flex>
+                                  </Box>
+
+                                  <Box
+                                    // pt='2'
+                                    w="280px"
+                                    display="none"
+                                    _groupHover={{ display: "block" }}
+                                  >
+                                    <Flex
+                                      flexDirection="row"
+                                      justifyContent="space-evenly"
+                                    >
+                                      <Button
+                                        cursor="pointer"
+                                        onClick={handleShowTask}
+                                        colorScheme="whatsapp"
+                                      >
+                                        Add task
+                                      </Button>{" "}
+                                      <IconButton
+                                        onClick={() =>
+                                          dispatch(taskID).then(() =>
+                                            dispatch(getTask())
+                                          )
+                                        }
+                                        cursor="pointer"
+                                        icon={
+                                          <Icon
+                                            as={RiDeleteBinLine}
+                                            color="gray"
+                                            borderColor="gray"
+                                            stroke="grey"
+                                          />
+                                        }
+                                        variant="outline"
+                                        color="gray"
+                                        aria-label="Call Sage"
+                                        fontSize="20px"
+                                        stroke="grey"
+                                      />
+                                      <IconButton
+                                        onClick={handleEditShowTask}
+                                        cursor="pointer"
+                                        icon={<Icon as={BsThreeDots} />}
+                                        variant="outline"
+                                        color="gray"
+                                        aria-label="Call Sage"
+                                        fontSize="20px"
+                                      />
+                                      <IconButton
+                                        cursor="pointer"
+                                        icon={<Icon as={BsPlay} />}
+                                        variant="outline"
+                                        // color="gray"
+                                        aria-label="Call Sage"
+                                        fontSize="20px"
+                                        bg="#4bb063"
+                                        color="white"
+                                        _hover={{ bg: "#4bb063" }}
+                                      />{" "}
+                                    </Flex>
+                                  </Box>
+                                </Flex>
+                              </Box>
+                            </AccordionPanel>
+                          </AccordionItem>
+                        </Accordion>
                       </Box>
-                    </AccordionPanel>
-                  </AccordionItem>
-                </Accordion>)
-              })
-                : (
-                  <Box 
-                  w="618px"                
-                  h="40px">
-                    <Text mt='1.2rem'textAlign='center'>No projects added</Text>
+                    );
+                  })
+                ) : (
+                  <Box w="618px" h="40px">
+                    <Text mt="1.2rem" textAlign="center">
+                      No projects added
+                    </Text>
                   </Box>
                 )
               }
@@ -360,10 +412,20 @@ const TaskList = (projects) => {
                   >
                     <FormControl>
                       <FormLabel>First Project/</FormLabel>
-                      <Input type="Task name..." />
+                      <Input
+                        placeholder="Task name"
+                        type="text"
+                        name="title"
+                        onChange={handleChange}
+                      />
 
                       <FormLabel>Description</FormLabel>
-                      <Input type="To add description first save your task" />
+                      <Input
+                        type="text"
+                        onChange={handleChange}
+                        name="description"
+                        placeholder="To add description first save your task"
+                      />
                     </FormControl>
                   </Box>
 
@@ -439,7 +501,11 @@ const TaskList = (projects) => {
                     // h="20px"
                   >
                     <Flex flexDirection="row" alignItems="flex-start">
-                      <Button colorScheme="whatsapp" variant="solid">
+                      <Button
+                        colorScheme="whatsapp"
+                        variant="solid"
+                        onClick={handleTask}
+                      >
                         Add Task
                       </Button>
                       <Button ml="0.8rem" colorScheme="grey" variant="outline">

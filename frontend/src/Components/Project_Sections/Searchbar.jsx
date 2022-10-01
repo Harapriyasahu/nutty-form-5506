@@ -9,15 +9,28 @@ import { BsThreeDots } from "react-icons/bs";
 import { FiFilter } from "react-icons/fi";
 import { useState } from "react";
 import TaskList from "./TaskList";
-
+// import second from 'first'
+import { useDispatch, useSelector } from "react-redux";
+import { addProject, getProject } from "../../Redux/project/action";
 const Searchbar = () => {
   const [openInputBox, setOpenInputBox] = useState(false);
-
+const dispatch = useDispatch();
   const [newProject, setNewProject] = useState('');
 
-  const [projects, setProjects] = useState([]);
+  // const [projects, setProjects] = useState([]);
+const {projectData} = useSelector((store)=>store.ProjectReducer) ;
+console.log("projectData", projectData);
 
-  console.log(newProject)
+  // console.log(newProject);
+  const handleAddProject = ()=>{
+if(newProject){
+const payload ={
+  name: newProject,
+}
+console.log("payload",payload);
+  dispatch(addProject(payload)).then(()=>dispatch(getProject()))
+}
+  }
 
   return (
     <>
@@ -103,13 +116,14 @@ const Searchbar = () => {
         >
           <Flex justifyContent='space-between'>
             <Input
+            type="text"
               value={newProject}
               width="auto"
               htmlSize={36}
               placeholder="Enter the name of a new project or task..."
               onChange={(e) => setNewProject(e.target.value)}
             />
-            <Button cursor="pointer" colorScheme="whatsapp" onClick={() => setProjects([...projects, newProject])}>
+            <Button cursor="pointer" colorScheme="whatsapp" onClick={handleAddProject}>
               Create new project
             </Button>
             <Button
@@ -126,7 +140,7 @@ const Searchbar = () => {
         ""
       )}
     </Box>
-    <TaskList projects={projects}/>
+    <TaskList projectData={projectData}/>
 
     </>
   );
