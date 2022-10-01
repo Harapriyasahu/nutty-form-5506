@@ -10,6 +10,7 @@ import Timesheet from "../Pages/Timesheet";
 
 import Tags from "../Pages/Tags/Tags"
 import Forgotpassword from "../Pages/ForgetPassword/ForgotPassword";
+import ResetPassword from "../Pages/ForgetPassword/ResetPassword";
 
 
 const AllRoutes = () => {
@@ -21,6 +22,7 @@ const AllRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgotten_password" element={<Forgotpassword/>} />
+      <Route path="/reset-password/" element={<ResetPassword />} />
 
       <Route path='/app' element={<Sidenav />}>
 
