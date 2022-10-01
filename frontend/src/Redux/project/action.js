@@ -17,11 +17,12 @@ export const getProject = (params) => (dispatch) => {
   dispatch({ type: types.GET_PROJECT_REQUEST });
   return axios({
     method: "get",
-    url: `/projects`,
+    url: `/app/projects`,
     params: params,
     headers: headers,
   })
     .then((res) => {
+      console.log("res",res)
       dispatch({ type: types.GET_PROJECT_SUCCESS, payload: res.data });
     })
     .catch((err) => {
@@ -34,7 +35,7 @@ export const getSingleProject = (id) => (dispatch) => {
     dispatch({ type: types.GET_PROJECT_REQUEST });
     return axios({
       method: "get",
-      url: `/projects/${id}`,
+      url: `/app/projects/${id}`,
       headers: headers,
     })
       .then((res) => {
@@ -52,12 +53,12 @@ export const addProject = (payload) => (dispatch) => {
 
   return axios({
     method: "post",
-    url: `/projects/create`,
+    url: `/app/projects/create`,
     data: payload,
     headers: headers,
   })
     .then((res) => {
-      return dispatch({ type: types.ADD_PROJECT_SUCCESS });
+      return dispatch({ type: types.ADD_PROJECT_SUCCESS,payload:res.data });
     })
     .catch((err) => {
       dispatch({ type: types.ADD_PROJECT_FAILURE });
@@ -71,7 +72,7 @@ export const updateProject = (payload,id) => (dispatch) => {
     dispatch({type:types.UPDATE_PROJECT_REQUEST})
     return axios({
         method: "patch",
-        url: `/projects/edit/${id}`,
+        url: `/app/projects/edit/${id}`,
         data: payload,
         headers: headers,
       })
@@ -89,7 +90,7 @@ export const deleteProject = (id) => (dispatch) => {
 
     return axios({
         method: "delete",
-        url: `/projects/delete/${id}`,
+        url: `/app/projects/delete/${id}`,
         headers: headers,
       })
     .then((r) => {
