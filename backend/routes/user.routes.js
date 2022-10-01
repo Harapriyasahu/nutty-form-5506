@@ -132,4 +132,32 @@ userRouter.post("/forgotten_password", async (req, res) => {
   }
 });
 
+
+userRouter.post("/reset-password/:id/:token", async (req, res) => {
+  const { password, confirmPassword } = req.body
+  const { id, token } = req.params
+  const user = await UserModel.findById({_id:id})
+
+  try {
+    jwt.verify(token, process.env.JWT_SECRET_KEY)
+    if (password && confirmPassword) {
+      if (password !== confirmPassword) {
+       return res.status(500).send({ "status": "error", "message": "New Password and Confirm New Password doesn't match" })
+      } else {
+        const salt = await bcrypt.genSalt(10)
+        const newHashPassword = await bcrypt.hash(password, salt)
+        await UserModel.findByIdAndUpdate(user._id, { $set: { password: newHashPassword } })
+        res.status(201).send({ "status": "success", "message": "Password Reset Successfully" })
+      }
+    } else {
+      res.status(400).send({ "status": "error", "message": "All Fields are Required" })
+    }
+  } catch (error) {
+    console.log(error)
+    res.status(400).send({ "status": "error", "message": "Invalid Token" })
+  }
+
+})
+
+
 module.exports = { userRouter };
