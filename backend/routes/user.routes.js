@@ -103,9 +103,9 @@ userRouter.post("/forgotten_password", async (req, res) => {
     const user = await UserModel.findOne({ email: email });
     if (user) {
       const token = jwt.sign({ userID: user._id }, process.env.JWT_SECRET_KEY, {
-        expiresIn: "15m",
+        expiresIn: "30m",
       });
-      const link = `http://localhost:3001/reset-password/${user._id}/${token}`;
+      const link = `http://localhost:3000/reset-password/${user._id}/${token}`;
 
       console.log(link);
 
@@ -135,8 +135,11 @@ userRouter.post("/forgotten_password", async (req, res) => {
 
 userRouter.post("/reset-password/:id/:token", async (req, res) => {
   const { password, confirmPassword } = req.body;
-  const { id, token } = req.params;
-  const user = await UserModel.findById({ _id: id });
+  const {id, token }= req.params;
+  console.log(req.params);
+  console.log(id)
+
+  const user = await UserModel.findById(id);
 
   try {
     jwt.verify(token, process.env.JWT_SECRET_KEY);

@@ -1,8 +1,44 @@
-import { Box, Button, Divider, Image, Input, Text } from "@chakra-ui/react";
-import React from "react";
-import { Link } from "react-router-dom";
+import {
+  Box,
+  Button,
+  Divider,
+  Image,
+  Input,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
+import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { notify } from "../../utils/extraFunctions";
 
 const ResetPassword = () => {
+  const navigate = useNavigate();
+  const {id, token} = useParams();
+  const toast = useToast();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+    if (password && confirmPassword) {
+      const payload = { password, confirmPassword };
+
+      axios
+        .post(`/reset-password/${id}/${token}`, payload)
+        .then((res) => {
+          console.log(res.data.message);
+          if (res.data.message) {
+            notify(toast, res.data.message, "success");
+            navigate("/login");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          notify(toast, err.response.data.message, "error");
+        });
+    }
+  };
+
   return (
     <Box>
       <Image
@@ -41,6 +77,7 @@ const ResetPassword = () => {
             fontSize="14px"
             height="35px"
             placeholder="Enter your New Password"
+            onChange={(e) => setPassword(e.target.value)}
           />
         </Box>
         <Box display="flex" alignItems="center" marginTop="25px" gap="7%">
@@ -54,6 +91,7 @@ const ResetPassword = () => {
             fontSize="14px"
             height="35px"
             placeholder="confirm Password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </Box>
         <Button
@@ -63,6 +101,7 @@ const ResetPassword = () => {
           color="white"
           bg="#4bb063"
           padding="5px 35px 5px 35px"
+          onClick={handlePasswordSubmit}
         >
           Save Settings
         </Button>
