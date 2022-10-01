@@ -251,6 +251,7 @@ const TaskList = () => {
                                 stroke="grey"
                               />
                               <IconButton
+                                onClick={handleEditShowTask}
                                 cursor="pointer"
                                 icon={<Icon as={BsThreeDots} />}
                                 variant="outline"

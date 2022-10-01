@@ -7,10 +7,11 @@ import {
 import thunk from "redux-thunk";
 import { AuthReducer } from "./auth/reducer";
 import { ProjectReducer } from "./project/reducer";
+import { TaskReducer } from "./tasks/reducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootReducers = combineReducers({ AuthReducer, ProjectReducer });
+const rootReducers = combineReducers({ AuthReducer, ProjectReducer,TaskReducer });
 
 export const store = legacy_createStore(
   rootReducers,
