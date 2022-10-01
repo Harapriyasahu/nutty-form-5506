@@ -45,14 +45,13 @@ const Navbar = () => {
 
   return (
     <Box
-      w="70%"
+      w="100%"
       h="auto"
       // border="1px solid blue"
       p="13px"
-      ml="300px"
-     
+      // ml="300px"
     >
-      <Flex flexDirection="row" justifyContent="right" >
+      <Flex flexDirection="row" justifyContent="space-between">
         <Box color="#3E3E3E" fontSize="18px" ml="14px" fontWeight="semibold">
           Projects
         </Box>
@@ -68,7 +67,7 @@ const Navbar = () => {
               onMouseLeave={onClose}
             ></Icon>
 
-            <Menu isOpen={isOpen}>
+            {/* <Menu isOpen={isOpen}>
               <MenuList 
               mt="7rem"
               ml="80rem"
@@ -78,7 +77,7 @@ const Navbar = () => {
                 <MenuItem>Integrations</MenuItem>
                 <MenuItem>Subscription</MenuItem>
               </MenuList>
-            </Menu>
+            </Menu> */}
 
             {/* Settings Icon Ends*/}
 
@@ -91,7 +90,7 @@ const Navbar = () => {
               onMouseLeave={onClose}
             ></Icon>
 
-            <Menu ml="10rem">
+            {/* <Menu ml="10rem">
               <MenuList
                 mt="7rem"
                 ml="80rem"
@@ -106,7 +105,7 @@ const Navbar = () => {
                 <MenuItem>What's new</MenuItem>
                 <MenuItem>Suggest a feature</MenuItem>
               </MenuList>
-            </Menu>
+            </Menu> */}
 
             <Icon color="#7a7978" as={BiUserPlus} w="30px" h="30px"></Icon>
 
@@ -121,7 +120,7 @@ const Navbar = () => {
               onMouseLeave={onClose}
             />
 
-            <Menu isOpen={isOpen} ml="10rem">
+            {/* <Menu isOpen={isOpen} ml="10rem">
               <MenuList
                 mt="7rem"
                 ml="90rem"
@@ -136,7 +135,7 @@ const Navbar = () => {
                 <Divider color="grey"></Divider>
                 <MenuItem>Logout</MenuItem>
               </MenuList>
-            </Menu>
+            </Menu> */}
           </Flex>
         </Box>
       </Flex>

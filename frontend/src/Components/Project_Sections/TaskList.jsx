@@ -29,7 +29,10 @@ import { CloseButton } from "@chakra-ui/react";
 import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
 import { useState } from "react";
 
-const TaskList = () => {
+const TaskList = (projects) => {
+
+  console.log(projects.projects);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [textBox, setTextBox] = useState(false);
@@ -95,7 +98,11 @@ const TaskList = () => {
             >
               {
                 // Loop over each projects
-                <Accordion defaultIndex={[0]} allowMultiple>
+                (projects.projects !== '' || projects.projects !== null) ?
+
+                projects.projects.map( (project) => {
+                  console.log(project)
+                  return (<Accordion defaultIndex={[0]} allowMultiple>
                   <AccordionItem>
                     <h2>
                       <AccordionButton role="group">
@@ -119,7 +126,8 @@ const TaskList = () => {
                                   d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
                                 />
                               </Icon>
-                              <Text mt="0.2rem">Project 2 title</Text>
+                              {/* <Text mt="0.2rem">Project 2 title</Text> */}
+                              <Text mt="0.2rem">{project}</Text>
                             </Flex>
                           </Box>
 
@@ -276,7 +284,15 @@ const TaskList = () => {
                       </Box>
                     </AccordionPanel>
                   </AccordionItem>
-                </Accordion>
+                </Accordion>)
+              })
+                : (
+                  <Box 
+                  w="618px"                
+                  h="40px">
+                    <Text mt='1.2rem'textAlign='center'>No projects added</Text>
+                  </Box>
+                )
               }
             </Box>
           </Box>
