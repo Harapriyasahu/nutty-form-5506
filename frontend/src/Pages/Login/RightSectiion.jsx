@@ -73,7 +73,7 @@ const RightSectiion = () => {
         />
       </Box>
 
-      <Link to="/#">
+      <Link to="/forgotten_password">
         <Text color="#25cf60" marginTop="15px" fontSize="14px" cursor="pointer">
           Forgotten Password?
         </Text>
