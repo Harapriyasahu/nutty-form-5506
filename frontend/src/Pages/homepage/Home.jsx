@@ -7,7 +7,7 @@ import Accordion from "../../Components/acordion/Accordion"
 import Footer from '../../Components/footer/Footer'
 import styles from "./home.module.css"
 // import Projects from './Projects'
-import Sidenav from '../../Components/sidenavbar/Sidenav'
+// import Sidenav from '../../Components/sidenavbar/Sidenav'
 
 const Home = () => {
   return (
@@ -125,7 +125,7 @@ const Home = () => {
 
 
         <Footer/>
-        <Sidenav/>
+        {/* <Sidenav/> */}
     </div>
   )
 }

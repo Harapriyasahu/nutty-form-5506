@@ -1,0 +1,87 @@
+.conttainner{
+    width: 80%;
+    margin-left: 300px;
+    /* border: 1px solid red;  */
+   
+}
+
+
+.tags{
+    margin-top:-40rem;
+    height: 350px;
+    width:500px;
+    /* border: 1px solid red;   */
+    width: 500px;
+    
+}
+
+.tags>h1{
+    font-size:30px;
+    margin-right:23rem;
+}
+.addpara_div{
+    height: 85px;
+    width: 500px;
+    text-align: start;
+    font-size: 16px;
+    color: #2E2E2E;
+    margin-left: 0;
+    padding-left: 0;
+
+}
+
+.addlistbtn{
+    background-color: #4BB063;
+    /* color: #FFFFFF; */
+    padding: 9px 18px 9px 18px;
+    border-radius: 8px;
+    margin-left: 350px;
+    margin-bottom: 10px;
+}
+.addlistbtn:hover{
+    background-color: #7BCA84;
+    color: #FFFFFF;
+    
+    
+}
+.add_hidden_btn{
+    text-decoration: underline;
+    font-size: 13px;
+    color: #797979;
+    margin-left: 240px;
+    margin-top: 40px;
+}
+.hrtag{
+    margin-top: 50px;
+    width:494px;
+    background-color: rgb(82, 82, 82);
+    color: rgb(74, 72, 72);
+}
+
+
+.bottombtn{
+    display: flex;
+    /* margin-right: 300px; */
+    text-align: start;
+}
+.savebtn{
+    background-color: #7BCA84;
+    color: #FFFFFF;
+    padding: 9px 18px 9px 18px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+.backbtn{
+    background-color: white;
+    color: #393939;
+    padding: 9px 18px 9px 18px;
+    border-radius: 8px;
+    border: 1px solid grey;
+    margin-top: 20px;
+    margin-right: 210px;
+    
+}
+.backbtn:hover{
+    background-color: rgb(201, 200, 200);
+}
