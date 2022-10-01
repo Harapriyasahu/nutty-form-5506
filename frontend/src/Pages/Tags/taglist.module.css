@@ -1,0 +1,35 @@
+.intput_div{
+    width:300px;
+    padding: 8px;
+    outline: none;
+    background-color: transparent;
+    border-radius: 8px;
+    border:1px solid rgba(0, 128, 0, 0.536);
+}
+
+
+.intput_div:hover{
+    background-color: white;
+}
+.addlistbtn{
+    width: 80px;
+    background-color: #4BB063;
+    color: white;
+    padding: 5px 10px 8px;
+    margin-left: 20px;
+    border-radius: 8px;
+}
+
+
+.addlistbtn:hover{
+background-color: rgba(0, 128, 0, 0.536);
+}
+
+.cancelbtn{
+    width: 80px;
+    height: auto;
+    padding: 3px 10px 8px;
+    border-radius: 8px;
+    margin-left: 15px;
+    border: 1px solid black;
+}

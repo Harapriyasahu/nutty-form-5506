@@ -45,12 +45,14 @@ const Navbar = () => {
 
   return (
     <Box
-      w="1275px"
+      w="70%"
       h="auto"
       // border="1px solid blue"
       p="13px"
+      ml="300px"
+     
     >
-      <Flex flexDirection="row" justifyContent="space-between">
+      <Flex flexDirection="row" justifyContent="right" >
         <Box color="#3E3E3E" fontSize="18px" ml="14px" fontWeight="semibold">
           Projects
         </Box>
