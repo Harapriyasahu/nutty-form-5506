@@ -7,29 +7,30 @@ import TaskList from "../Components/Project_Sections/TaskList";
 const Projects = () => {
   return (
     <Box
-      // bg="whitesmoke"
-      // w='1300px'
-      w="1275px"
+    // w='100%'
+      minW="1275px"
       h="100vh"
-      // p={4}
       color="black"
-      border="1px solid black"
+      // border="1px solid black"
+      // ml="243px"
       ml="243px"
+      overflowX='hidden'
+      mt='-505px'
     >
       {/* Top bar showing trial period */}
-      <Box w="1275px" h="62px" border="1px solid red"></Box>
+      {/* <Box w="1275px" h="62px" border="1px solid red"></Box> */}
 
       {/* Navbar Section */}
       {/* <Box w='1275px' h='62px' border='1px solid blue'></Box> */}
-      <Navbar />
-      <Divider borderColor='lightgray' w='100%' color='gray.100'></Divider>
+      {/* <Navbar /> */}
+      {/* <Divider borderColor='lightgray' w='100%' color='gray.100'></Divider> */}
 
       {/* Searchbar Section */}
       {/* <Box w='1275px' h='94px' border='1px solid red'></Box> */}
       <Searchbar />
 
       {/* Outer Box */}
-      <TaskList />
+      {/* <TaskList /> */}
       {/* <Flex 
       flexDirection='row'
       w='1275px' 
