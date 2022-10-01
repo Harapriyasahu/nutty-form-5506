@@ -72,8 +72,6 @@ const TaskList = ({ projectData }) => {
     }
   }, [tasksData.length]);
 
-
-
   const handleClose = () => {
     setTextBox(false);
     setCloseTextBox(false);
@@ -131,14 +129,14 @@ const TaskList = ({ projectData }) => {
               h="auto"
               border="1px solid lightgrey"
             >
-              {
-                // Loop over each projects
-                projectData ? (
-                  projectData.map((project) => {
-                    return (
-                      <Box key={project.name}>
-                        <Accordion defaultIndex={[0]} allowMultiple>
-                          <AccordionItem>
+              <Accordion defaultIndex={[0]} allowMultiple>
+                <AccordionItem>
+                  {
+                    // Loop over each projects
+                    projectData ? (
+                      projectData.map((project) => {
+                        return (
+                          <Box key={project.name}>
                             <h2>
                               <AccordionButton role="group">
                                 <Flex
@@ -226,126 +224,120 @@ const TaskList = ({ projectData }) => {
                                 </Flex>
                               </AccordionButton>
                             </h2>
-                            <AccordionPanel
-                              p="2"
-                              _hover={{ bg: "whitesmoke", cursor: "pointer" }}
-                            >
-                              <Box
-                                color="gray"
-                                borderRadius="4px"
-                                w="618px"
-                                minH="40px"
-                                role="group"
-                                p="1"
-                              >
-                                <Flex
-                                  w="600px"
-                                  flexDirection="row"
-                                  justifyContent="space-around"
-                                >
-                                  <Box flex="1" textAlign="left" w="300px">
-                                    <Flex>
-                                      <Icon
-                                        ml="4.4rem"
-                                        mt="0.6rem"
-                                        viewBox="0 0 200 200"
-                                        color="green.500"
-                                      >
-                                        <path
-                                          fill="currentColor"
-                                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-                                        />
-                                      </Icon>
-
-                                      {tasksData &&
-                                        tasksData.map((el) => {
-                                          setTaskID(el._id);
-                                          return (
-                                            <Text key={el._id}>
-                                              {" "}
-                                              {el.title}{" "}
-                                            </Text>
-                                          );
-                                        })}
-                                    </Flex>
-                                  </Box>
-
-                                  <Box
-                                    // pt='2'
-                                    w="280px"
-                                    display="none"
-                                    _groupHover={{ display: "block" }}
-                                  >
-                                    <Flex
-                                      flexDirection="row"
-                                      justifyContent="space-evenly"
-                                    >
-                                      <Button
-                                        cursor="pointer"
-                                        onClick={handleShowTask}
-                                        colorScheme="whatsapp"
-                                      >
-                                        Add task
-                                      </Button>{" "}
-                                      <IconButton
-                                        onClick={() =>
-                                          dispatch(taskID).then(() =>
-                                            dispatch(getTask())
-                                          )
-                                        }
-                                        cursor="pointer"
-                                        icon={
-                                          <Icon
-                                            as={RiDeleteBinLine}
-                                            color="gray"
-                                            borderColor="gray"
-                                            stroke="grey"
-                                          />
-                                        }
-                                        variant="outline"
-                                        color="gray"
-                                        aria-label="Call Sage"
-                                        fontSize="20px"
-                                        stroke="grey"
-                                      />
-                                      <IconButton
-                                        onClick={handleEditShowTask}
-                                        cursor="pointer"
-                                        icon={<Icon as={BsThreeDots} />}
-                                        variant="outline"
-                                        color="gray"
-                                        aria-label="Call Sage"
-                                        fontSize="20px"
-                                      />
-                                      <IconButton
-                                        cursor="pointer"
-                                        icon={<Icon as={BsPlay} />}
-                                        variant="outline"
-                                        // color="gray"
-                                        aria-label="Call Sage"
-                                        fontSize="20px"
-                                        bg="#4bb063"
-                                        color="white"
-                                        _hover={{ bg: "#4bb063" }}
-                                      />{" "}
-                                    </Flex>
-                                  </Box>
-                                </Flex>
-                              </Box>
-                            </AccordionPanel>
-                          </AccordionItem>
-                        </Accordion>
+                          </Box>
+                        );
+                      })
+                    ) : (
+                      <Box w="618px" h="40px">
+                        <Text mt="1.2rem" textAlign="center">
+                          No projects added
+                        </Text>
                       </Box>
-                    );
-                  })
-                ) : (
-                  <Box w="618px" h="40px">
-                    <Text mt="1.2rem" textAlign="center">
-                      No projects added
-                    </Text>
-                  </Box>
-                )
-              }
+                    )
+                  }
+
+                  <AccordionPanel
+                    p="2"
+                    _hover={{ bg: "whitesmoke", cursor: "pointer" }}
+                  >
+                    <Box
+                      color="gray"
+                      borderRadius="4px"
+                      w="618px"
+                      minH="40px"
+                      role="group"
+                      p="1"
+                    >
+                      <Flex
+                        w="600px"
+                        flexDirection="row"
+                        justifyContent="space-around"
+                      >
+                        <Box flex="1" textAlign="left" w="300px">
+                          <Flex>
+                            <Icon
+                              ml="4.4rem"
+                              mt="0.6rem"
+                              viewBox="0 0 200 200"
+                              color="green.500"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                              />
+                            </Icon>
+
+                            {tasksData &&
+                              tasksData.map((el) => {
+                                setTaskID(el._id);
+                                return <Text key={el._id}> {el.title} </Text>;
+                              })}
+                          </Flex>
+                        </Box>
+
+                        <Box
+                          // pt='2'
+                          w="280px"
+                          display="none"
+                          _groupHover={{ display: "block" }}
+                        >
+                          <Flex
+                            flexDirection="row"
+                            justifyContent="space-evenly"
+                          >
+                            <Button
+                              cursor="pointer"
+                              onClick={handleShowTask}
+                              colorScheme="whatsapp"
+                            >
+                              Add task
+                            </Button>{" "}
+                            <IconButton
+                              onClick={() =>
+                                dispatch(taskID).then(() => dispatch(getTask()))
+                              }
+                              cursor="pointer"
+                              icon={
+                                <Icon
+                                  as={RiDeleteBinLine}
+                                  color="gray"
+                                  borderColor="gray"
+                                  stroke="grey"
+                                />
+                              }
+                              variant="outline"
+                              color="gray"
+                              aria-label="Call Sage"
+                              fontSize="20px"
+                              stroke="grey"
+                            />
+                            <IconButton
+                              onClick={handleEditShowTask}
+                              cursor="pointer"
+                              icon={<Icon as={BsThreeDots} />}
+                              variant="outline"
+                              color="gray"
+                              aria-label="Call Sage"
+                              fontSize="20px"
+                            />
+                            <IconButton
+                              cursor="pointer"
+                              icon={<Icon as={BsPlay} />}
+                              variant="outline"
+                              // color="gray"
+                              aria-label="Call Sage"
+                              fontSize="20px"
+                              bg="#4bb063"
+                              color="white"
+                              _hover={{ bg: "#4bb063" }}
+                            />{" "}
+                          </Flex>
+                        </Box>
+                      </Flex>
+                    </Box>
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
             </Box>
           </Box>
 
