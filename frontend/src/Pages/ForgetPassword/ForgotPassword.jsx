@@ -1,8 +1,25 @@
-import { Box, Button, Divider, Image, Input, Text } from "@chakra-ui/react";
-import React from "react";
+import { Box, Button, Divider, Image, Input, Text, useToast } from "@chakra-ui/react";
+import axios from "axios";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { notify } from "../../utils/extraFunctions";
 
 const Forgotpassword = () => {
+  const toast = useToast();
+const [email,setEmail] = useState("");
+const handleEmailSubmit =(e) =>{
+  e.preventDefault();
+axios.post("/forgotten_password",{email}).then((res)=>{
+  console.log(res.data.message);
+  notify(toast, res.data.message, "success");
+}).catch((err)=>{
+  console.log(err);
+  notify(toast, err.response.data.message, 'error');
+})
+
+}
+
+
   return (
     <Box>
       <Image
@@ -41,6 +58,7 @@ const Forgotpassword = () => {
             fontSize="14px"
             height="35px"
             placeholder="Enter Your Email"
+            onChange={(e)=>setEmail(e.target.value)}
           />
         </Box>
 
@@ -51,6 +69,7 @@ const Forgotpassword = () => {
           color="white"
           bg="#4bb063"
           padding="5px 35px 5px 35px"
+          onClick={handleEmailSubmit}
         >
           Submit
         </Button>

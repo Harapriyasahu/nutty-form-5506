@@ -1,8 +1,6 @@
 var nodemailer = require('nodemailer');
 
 
-import dotenv from 'dotenv'
-dotenv.config()
 
 let transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
@@ -14,4 +12,5 @@ let transporter = nodemailer.createTransport({
   },
 })
 
-export default transporter
+
+module.exports ={transporter};
