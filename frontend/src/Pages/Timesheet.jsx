@@ -25,7 +25,7 @@ const Timesheet = () => {
     <div>
         <div className='timesheetmain'>
 
-            <div className='trialdiv'>
+            {/* <div className='trialdiv'>
                 <div className='trialheaddiv'>
                     <p className='trialheadpara'>12 days left in your pro trial</p>
                 </div>
@@ -33,9 +33,9 @@ const Timesheet = () => {
                     <button className='trialbttn'>Subrcribe to Pro</button>
                     <button className='trialbttn1'>Book a Demo</button>
                 </div>
-            </div>
+            </div> */}
 
-            <div className='userdiv'>
+            {/* <div className='userdiv'>
                 <div className='userdivuser'>
                     <h1 className='userdivuserhead'>Timesheet</h1>
                 </div>
@@ -89,10 +89,10 @@ const Timesheet = () => {
                     </button>
 
                 </div>
-            </div>
+            </div>*/}
 
             <div className='datediv'>
-                <div className='datediv1'>
+                <div className='datediv1'> 
                     <div className='datedivinside1'>
                         <button className='datedivinside1right'>
                             <img className='datedivinside1arrow' src="https://cdn-icons-png.flaticon.com/128/2985/2985161.png" alt="" />
