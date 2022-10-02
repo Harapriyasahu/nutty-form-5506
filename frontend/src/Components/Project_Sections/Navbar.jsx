@@ -1,17 +1,41 @@
-import { Box, Button, Divider, Flex, Icon, List } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Icon,
+  List,
+  useToast,
+} from "@chakra-ui/react";
 import React from "react";
 import { IoSettingsOutline } from "react-icons/io5";
 import { BiHelpCircle, BiUserPlus } from "react-icons/bi";
 import { Image } from "@chakra-ui/react";
 
+import { MenuItem, Menu, MenuButton, MenuList } from "@chakra-ui/react";
 import {
-  MenuItem,
-  Menu,
-  MenuButton,
-  MenuList,
-} from "@chakra-ui/react";
+  getItemFromLocal,
+  removeItemFromLocal,
+} from "../../utils/localStorage";
+import { notify } from "../../utils/extraFunctions";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutSuccess } from "../../Redux/auth/action";
+import { useNavigate } from "react-router-dom";
 
+const user = getItemFromLocal("token");
 const Navbar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const handleLogout = () => {
+    dispatch(logoutSuccess());
+    removeItemFromLocal("token");
+    removeItemFromLocal("user");
+    notify(toast, "Logout Successfully", "success");
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
+  };
 
   return (
     <Box
@@ -77,7 +101,7 @@ const Navbar = () => {
                 <MenuItem>Download App</MenuItem>
                 <MenuItem>Browser Plugin</MenuItem>
                 <Divider color="grey"></Divider>
-                <MenuItem>Logout</MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </MenuList>
             </Menu>
           </Flex>

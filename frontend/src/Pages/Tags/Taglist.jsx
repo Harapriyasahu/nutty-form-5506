@@ -75,7 +75,7 @@ export const Taglist = () => {
             </Tr>
           </Thead>
           <tbody>
-            {tagData?.map((el) => (
+            { tagData.length && tagData?.map((el) => (
               <tr key={el._id}>
                 <td>{el.name}</td>
                 {/* <td onClick={()=}>

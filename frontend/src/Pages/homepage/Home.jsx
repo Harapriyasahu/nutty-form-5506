@@ -107,7 +107,7 @@ const Home = () => {
       <div  className={styles.BookDemo}>
         <div>
           <p>Want to track time in your team ?</p>
-          <a href="#">Book a Demo  </a>
+          <a href="/">Book a Demo  </a>
         </div>
         <div>
           <h2>

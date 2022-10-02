@@ -145,8 +145,8 @@ useEffect(() => {
                 <AccordionItem>
                   {
                     // Loop over each projects
-                    projectData ? (
-                      projectData.map((project) => {
+                    projectData.length ? (
+                      projectData?.map((project) => {
                         return (
                           <Box key={project.name}>
                             <h2>
