@@ -1,5 +1,5 @@
 .conttainner{
-    width: 80%;
+    min-width: 80%;
     margin-left: 300px;
     /* border: 1px solid red;  */
    
@@ -9,7 +9,7 @@
 .tags{
     margin-top:-40rem;
     height: 350px;
-    width:500px;
+   min-width:500px;
     /* border: 1px solid red;   */
     width: 500px;
     

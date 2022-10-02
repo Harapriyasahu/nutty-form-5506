@@ -10,7 +10,7 @@ tagRouter.use(checkUserAuth);
 
 tagRouter.get("/", async (req, res) => {
   const userId = req.body.userId;
-  const foundTag = await TagModel.find({ _id: userId });
+  const foundTag = await TagModel.find();
   if (foundTag.length > 0) {
     res.send(foundTag);
   } else {
@@ -75,7 +75,7 @@ tagRouter.patch("/edit/:tagId", async (req, res) => {
 
 tagRouter.delete("/delete/:tagId", async (req, res) => {
   const { tagId } = req.params;
-
+console.log("tagId",tagId)
   const foundTag = await TagModel.findById({ _id: tagId });
 
   if (foundTag) {
