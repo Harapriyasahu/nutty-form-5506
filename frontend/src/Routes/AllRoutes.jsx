@@ -12,6 +12,7 @@ import Tags from "../Pages/Tags/Tags"
 import Forgotpassword from "../Pages/ForgetPassword/ForgotPassword";
 import ResetPassword from "../Pages/ForgetPassword/ResetPassword";
 import Timesheet from "../Pages/TimeSheet/Timesheet";
+import Error from "../Pages/Error";
 
 
 
@@ -33,7 +34,7 @@ const AllRoutes = () => {
           <Route path='tags' element={<Tags />} />
 
       </Route>
-
+      <Route path="*" element={<Error />} />
     </Routes>
   );
 };
