@@ -1,0 +1,32 @@
+/* override day number color and size */
+.fc-day-number {
+    font-size: 1.5em;
+    color: #5c005c;
+  }
+  
+  /* override day title color and size */
+  .fc-day-header {
+    font-size: 1.5em;
+    color: #00b294;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .fc-day-number {
+      font-size: 1rem;
+      color: #5c005c;
+    }
+    .fc-day-header {
+      font-size: 1rem;
+      color: #00b294;
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    .fc-day-header {
+      font-size: .8rem;
+      color: #00b294;
+    }
+    .fc-day-header {
+      font-size: .8rem;
+      color: #00b294;
+    }
+  }
