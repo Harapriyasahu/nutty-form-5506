@@ -9,10 +9,12 @@ const Pricing = () => {
       <div className={styles.Topp}>
         <h3>PRICING</h3>
         <h1>Your time cost more</h1>
+        <div className={styles.use}>
         <p>
           Use free forever plan or subscribe to a paid plan to get more
           features!
         </p>
+        </div>
       </div>
 
       <div className={styles.Outa}>

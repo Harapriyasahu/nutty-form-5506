@@ -70,3 +70,13 @@ color: gray;
     color: gray;
     cursor: pointer;
 }
+
+
+
+@media only screen and (min-width: 425px)  and (max-width: 768px)  {
+    .suport{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        row-gap: 40px;
+    }
+}
