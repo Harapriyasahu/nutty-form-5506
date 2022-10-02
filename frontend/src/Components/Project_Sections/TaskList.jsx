@@ -31,7 +31,7 @@ import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask, getTask } from "../../Redux/tasks/action";
-import { getProject } from "../../Redux/project/action";
+import { deleteProject, getProject } from "../../Redux/project/action";
 
 const TaskList = ({ projectData }) => {
   const dispatch = useDispatch();
@@ -60,6 +60,8 @@ const TaskList = ({ projectData }) => {
     }
   };
 
+
+
   useEffect(() => {
     if (projectData.length === 0) {
       dispatch(getProject());
@@ -71,6 +73,16 @@ const TaskList = ({ projectData }) => {
       // dispatch(getTask());
     }
   }, [tasksData.length]);
+  const handleTaskData =(id)=>{
+  return id;
+  
+  }
+
+useEffect(() => {
+  setTaskID(taskID);
+}, [taskID])
+
+
 
   const handleClose = () => {
     setTextBox(false);
@@ -183,6 +195,12 @@ const TaskList = ({ projectData }) => {
                                         Add task
                                       </Button>{" "}
                                       <IconButton
+                                       onClick={() =>{
+                                        console.log(project.id)
+                                        dispatch(deleteProject(project._id)).then(() => dispatch(getProject()))
+
+                                       }
+                                      }
                                         cursor="pointer"
                                         icon={
                                           <Icon
@@ -269,7 +287,7 @@ const TaskList = ({ projectData }) => {
 
                             {tasksData &&
                               tasksData.map((el) => {
-                                setTaskID(el._id);
+                                handleTaskData(el._id)
                                 return <Text key={el._id}> {el.title} </Text>;
                               })}
                           </Flex>
@@ -294,7 +312,7 @@ const TaskList = ({ projectData }) => {
                             </Button>{" "}
                             <IconButton
                               onClick={() =>
-                                dispatch(taskID).then(() => dispatch(getTask()))
+                                dispatch(deleteProject(projectId)).then(() => dispatch(getTask()))
                               }
                               cursor="pointer"
                               icon={
