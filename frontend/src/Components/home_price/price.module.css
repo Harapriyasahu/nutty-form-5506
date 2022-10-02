@@ -13,13 +13,14 @@
     text-align: center;
 }
 
+
 .Topp>h1{
     font-size: 35px;
     font-weight: bold;
     margin: 30px 0 20px 70px;
 }
 
-.Topp>p{
+.use{
     font-size: 20px;
     text-align: center;
 }
@@ -56,4 +57,32 @@
     height: 420px;
     margin: 25px 25px;
     /* border: 1px solid red; */
+}
+
+
+@media only screen and (min-width: 425px)  and (max-width: 768px)  {
+
+    .Topp{
+        width:auto;
+
+    }
+
+    .Topp>h1{
+        margin-left: -20px;
+    }
+
+    .use{
+        width: 320px;
+        align-items: automatic;
+        margin: auto;
+    }
+
+    .Inna{
+        display: grid;
+        height:1100px;
+        /* width: 100%; */
+        grid-template-columns: repeat(2,1fr);
+        
+  
+    }
 }

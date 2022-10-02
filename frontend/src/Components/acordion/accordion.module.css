@@ -1,0 +1,20 @@
+.MyDi{
+    margin:auto;
+width:70%;
+height:400px;
+}
+
+
+@media only screen and (min-width: 425px)  and (max-width: 768px)  {
+   .MyDi{ 
+    height: auto;
+    
+   }
+
+   .maindivv{
+    height: auto;
+    /* border: 1px solid blue; */
+    padding-top:600px ;
+    
+   }
+}
