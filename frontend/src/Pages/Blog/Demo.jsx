@@ -1,8 +1,9 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 import './Demo.css'
 const Demo = () => {
   return (
-    <div>
+    <Box mt={"5rem"}>
       {/* <div id="navbar">
         <div id="navbar1">
             <div>
@@ -240,7 +241,7 @@ const Demo = () => {
 
 <div id="footer">
 </div>
-    </div>
+    </Box>
   )
 }
 

@@ -32,7 +32,7 @@ const RightSectiion = () => {
          
           dispatch(loginSuccess(res.data));
           notify(toast, res.data.message, "success", "bottom");
-          navigate("/");
+          navigate("/app/timesheet");
         }
       })
       .catch((err) =>{

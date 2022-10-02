@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div>
         {/* <Projects/> */}
-        <Navvbar/>
+        {/* <Navvbar/> */}
 
         <div className={styles.OuterHome} >
   

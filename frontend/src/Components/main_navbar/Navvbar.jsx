@@ -130,7 +130,8 @@ const Navvbar = () => {
                 </Menu>
               </Box>
               <Box onMouseEnter={secOnClose} onMouseMove={onClose}>
-                <Text>Pricing</Text>
+        <Routerlink to="/pricing">   Pricing </Routerlink>
+                
               </Box>
 
               <Box>
@@ -184,7 +185,7 @@ const Navvbar = () => {
               </Box>
 
               <Box onMouseEnter={secOnClose}>
-                <Text>Blog</Text>
+              <Routerlink to= "/blog"><Text>Blog</Text></Routerlink>  
               </Box>
             </Flex>
           </Box>

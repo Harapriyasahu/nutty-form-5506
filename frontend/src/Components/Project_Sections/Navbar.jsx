@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Box,
   Button,
   Divider,
@@ -18,11 +19,12 @@ import {
   removeItemFromLocal,
 } from "../../utils/localStorage";
 import { notify } from "../../utils/extraFunctions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, } from "react-redux";
 import { logoutSuccess } from "../../Redux/auth/action";
 import { useNavigate } from "react-router-dom";
 
-const user = getItemFromLocal("token");
+const user = getItemFromLocal("user");
+
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -85,18 +87,19 @@ const Navbar = () => {
             <Icon color="#7a7978" as={BiUserPlus} w="30px" h="30px"></Icon>
 
             <Menu>
-              <MenuButton as={Button}>
-                <Image
+              <MenuButton as={Button} background="white">
+                {user?<Avatar size="sm" name={user.name} src='https://bit.ly/broken-link' />:  <Image
                   // _hover={hover3}
                   src="https://www.gravatar.com/avatar/cc306f4d0b49ec63773e34e7a89f4583?s=60&d=mm"
                   alt="User"
                   w="32px"
                   h="32px"
                   borderRadius="full"
-                />
+                />}
+               
               </MenuButton>
               <MenuList>
-                <MenuItem>EmailId</MenuItem>
+                <MenuItem>{user?.email}</MenuItem>
                 <Divider color="grey"></Divider>
                 <MenuItem>Download App</MenuItem>
                 <MenuItem>Browser Plugin</MenuItem>
