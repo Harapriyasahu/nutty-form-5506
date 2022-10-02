@@ -6,11 +6,12 @@ import Pricing from "../Pages/Pricing/Pricing";
 import Signup from "../Pages/Signup/Signup";
 import Sidenav from "../Components/sidenavbar/Sidenav";
 import Login from "../Pages/Login/Login";
-import Timesheet from "../Pages/Timesheet";
+
 
 import Tags from "../Pages/Tags/Tags"
 import Forgotpassword from "../Pages/ForgetPassword/ForgotPassword";
 import ResetPassword from "../Pages/ForgetPassword/ResetPassword";
+import Timesheet from "../Pages/TimeSheet/Timesheet";
 
 
 const AllRoutes = () => {
@@ -26,9 +27,9 @@ const AllRoutes = () => {
 
       <Route path='/app' element={<Sidenav />}>
 
-          <Route path='' element={<Timesheet />} />
+          <Route path='timesheet' element={<Timesheet />} />
           <Route path='projects' element={<Projects />} /> 
-          <Route path='tags' element={<Tags/>} />
+          <Route path='tags' element={<Tags />} />
 
       </Route>
 

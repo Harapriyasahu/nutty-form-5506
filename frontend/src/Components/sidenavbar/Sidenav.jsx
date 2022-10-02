@@ -46,7 +46,7 @@ const Sidenav = () => {
               <img
                 style={{ height: "60px" }}
                 src="https://cdn-m.timecamp.com/img/greenbranding/press/timecamp-pr-materials/svg/colorLogo.svg"
-              />
+              alt=""/>
             </Link>
           </Box>
           <Box className={styles.common_outer}>
@@ -59,7 +59,7 @@ const Sidenav = () => {
             >
               <FiClock className={styles.common_btn} />
               <Text>
-                <Link to="">Timesheet</Link>
+                <Link to="/app/timesheet">Timesheet</Link>
               </Text>
             </Button>
           </Box>
