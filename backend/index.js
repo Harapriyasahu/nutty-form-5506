@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use("/",userRouter);
 app.use("/app/projects", projectRouter);
-app.use("/tags",tagRouter);
+app.use("/app/tags",tagRouter);
 app.use("/tasks",taskRouter);
 
 app.get("/",( req,res)=>{
