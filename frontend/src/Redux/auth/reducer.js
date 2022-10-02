@@ -6,6 +6,9 @@ import {
   USER_LOGIN_FAILURE,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT_REQUEST,
+  USER_LOGOUT_SUCCESS,
+  USER_LOGOUT_FAILURE
 } from "./actionTypes";
 
 const initialState = {
@@ -61,6 +64,17 @@ export const AuthReducer = (state = initialState, action) => {
         token: null,
         isError: true,
       };
+    case USER_LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isAuthLoading: false,
+        token: null,
+        user: {},
+        isError: true,
+      };
+
+
+
     default:
       return state;
   }

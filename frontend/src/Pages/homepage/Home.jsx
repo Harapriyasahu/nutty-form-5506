@@ -11,8 +11,7 @@ import styles from "./home.module.css"
 const Home = () => {
   return (
     <div>
-     
-      <Navvbar />
+
 
       <div className={styles.OuterHome} >
 
@@ -120,11 +119,23 @@ const Home = () => {
         <Price />
         <Accordion />
 
+
+      <div  className={styles.BookDemo}>
+        <div>
+          <p>Want to track time in your team ?</p>
+          <a href="/">Book a Demo  </a>
+        </div>
+        <div>
+          <h2>
+            Try an automatic, easy-to-use time tracker for the entire
+            organization!
+          </h2>
+        </div>
+
       </div>
 
 
-      <Footer />
-      {/* <Sidenav/> */}
+    
     </div>
   )
 }
