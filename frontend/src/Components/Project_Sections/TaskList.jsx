@@ -60,8 +60,6 @@ const TaskList = ({ projectData }) => {
     }
   };
 
-
-
   useEffect(() => {
     if (projectData.length === 0) {
       dispatch(getProject());
@@ -73,16 +71,13 @@ const TaskList = ({ projectData }) => {
       // dispatch(getTask());
     }
   }, [tasksData.length]);
-  const handleTaskData =(id)=>{
-  return id;
-  
-  }
+  const handleTaskData = (id) => {
+    return id;
+  };
 
-useEffect(() => {
-  setTaskID(taskID);
-}, [taskID])
-
-
+  useEffect(() => {
+    setTaskID(taskID);
+  }, [taskID]);
 
   const handleClose = () => {
     setTextBox(false);
@@ -141,221 +136,222 @@ useEffect(() => {
               h="auto"
               border="1px solid lightgrey"
             >
-              <Accordion defaultIndex={[0]} allowMultiple>
-                <AccordionItem>
-                  {
-                    // Loop over each projects
-                    projectData ? (
-                      projectData.map((project) => {
-                        return (
-                          <Box key={project.name}>
-                            <h2>
-                              <AccordionButton role="group">
-                                <Flex
-                                  w="618px"
-                                  flexDirection="row"
-                                  justifyContent="space-around"
-                                  h="40px"
-                                >
-                                  <Box flex="1" textAlign="left" w="300px">
-                                    <Flex>
-                                      <AccordionIcon mt="0.4rem" mr="1rem" />
-                                      <Icon
-                                        mr="0.4rem"
-                                        mt="0.6rem"
-                                        viewBox="0 0 200 200"
-                                        color="orange.400"
-                                      >
-                                        <path
-                                          fill="currentColor"
-                                          d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-                                        />
-                                      </Icon>
-                                      {/* <Text mt="0.2rem">Project 2 title</Text> */}
-                                      <Text mt="0.2rem">{project.name}</Text>
-                                    </Flex>
-                                  </Box>
-
-                                  <Box
-                                    w="280px"
-                                    display="none"
-                                    _groupHover={{ display: "block" }}
+              {projectData ? (
+                projectData.map((project) => {
+                  return (
+                    <Accordion allowMultiple>
+                      <Box key={project.name}>
+                        <h2>
+                          <AccordionButton role="group">
+                            <Flex
+                              w="618px"
+                              flexDirection="row"
+                              justifyContent="space-around"
+                              h="40px"
+                            >
+                              <Box flex="1" textAlign="left" w="300px">
+                                <Flex>
+                                  <AccordionIcon mt="0.4rem" mr="1rem" />
+                                  <Icon
+                                    mr="0.4rem"
+                                    mt="0.6rem"
+                                    viewBox="0 0 200 200"
+                                    color="orange.400"
                                   >
-                                    <Flex
-                                      flexDirection="row"
-                                      justifyContent="space-evenly"
-                                    >
-                                      <Button
-                                        cursor="pointer"
-                                        onClick={() =>
-                                          handleShowTask(project._id)
-                                        }
-                                        colorScheme="whatsapp"
-                                      >
-                                        Add task
-                                      </Button>{" "}
-                                      <IconButton
-                                       onClick={() =>{
-                                        console.log(project.id)
-                                        dispatch(deleteProject(project._id)).then(() => dispatch(getProject()))
+                                    <path
+                                      fill="currentColor"
+                                      d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                                    />
+                                  </Icon>
+                                  {/* <Text mt="0.2rem">Project 2 title</Text> */}
+                                  <Text mt="0.2rem">{project.name}</Text>
+                                </Flex>
+                              </Box>
 
-                                       }
-                                      }
-                                        cursor="pointer"
-                                        icon={
-                                          <Icon
-                                            as={RiDeleteBinLine}
-                                            color="gray"
-                                            borderColor="gray"
-                                            stroke="grey"
-                                          />
-                                        }
-                                        variant="outline"
+                              <Box
+                                w="280px"
+                                display="none"
+                                _groupHover={{ display: "block" }}
+                              >
+                                <Flex
+                                  flexDirection="row"
+                                  justifyContent="space-evenly"
+                                >
+                                  <Button
+                                    cursor="pointer"
+                                    onClick={() => handleShowTask(project._id)}
+                                    colorScheme="whatsapp"
+                                  >
+                                    Add task
+                                  </Button>{" "}
+                                  <IconButton
+                                    onClick={() => {
+                                      console.log(project.id);
+                                      dispatch(deleteProject(project._id)).then(
+                                        () => dispatch(getProject())
+                                      );
+                                    }}
+                                    cursor="pointer"
+                                    icon={
+                                      <Icon
+                                        as={RiDeleteBinLine}
                                         color="gray"
-                                        aria-label="Call Sage"
-                                        fontSize="20px"
+                                        borderColor="gray"
                                         stroke="grey"
                                       />
-                                      <IconButton
-                                        onClick={handleEditShowTask}
-                                        cursor="pointer"
-                                        icon={<Icon as={BsThreeDots} />}
-                                        variant="outline"
-                                        color="gray"
-                                        aria-label="Call Sage"
-                                        fontSize="20px"
-                                      />
-                                      <IconButton
-                                        onClick={onOpen}
-                                        cursor="pointer"
-                                        icon={<Icon as={BsPlay} />}
-                                        variant="outline"
-                                        // color="gray"
-                                        aria-label="Call Sage"
-                                        fontSize="20px"
-                                        color="white"
-                                        bg="#4bb063"
-                                        _hover={{ bg: "#4bb063" }}
-                                      />{" "}
+                                    }
+                                    variant="outline"
+                                    color="gray"
+                                    aria-label="Call Sage"
+                                    fontSize="20px"
+                                    stroke="grey"
+                                  />
+                                  <IconButton
+                                    onClick={handleEditShowTask}
+                                    cursor="pointer"
+                                    icon={<Icon as={BsThreeDots} />}
+                                    variant="outline"
+                                    color="gray"
+                                    aria-label="Call Sage"
+                                    fontSize="20px"
+                                  />
+                                  <IconButton
+                                    onClick={onOpen}
+                                    cursor="pointer"
+                                    icon={<Icon as={BsPlay} />}
+                                    variant="outline"
+                                    // color="gray"
+                                    aria-label="Call Sage"
+                                    fontSize="20px"
+                                    color="white"
+                                    bg="#4bb063"
+                                    _hover={{ bg: "#4bb063" }}
+                                  />{" "}
+                                </Flex>
+                              </Box>
+                            </Flex>
+                          </AccordionButton>
+                        </h2>
+                        {tasksData &&
+                          tasksData.map((el) => {
+                            handleTaskData(el._id);
+                            return (
+                              <AccordionItem>
+                                <AccordionPanel
+                                  p="2"
+                                  _hover={{
+                                    bg: "whitesmoke",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  <Box
+                                    color="gray"
+                                    borderRadius="4px"
+                                    w="618px"
+                                    minH="40px"
+                                    role="group"
+                                    p="1"
+                                  >
+                                    <Flex
+                                      w="600px"
+                                      flexDirection="row"
+                                      justifyContent="space-around"
+                                    >
+                                      <Box flex="1" textAlign="left" w="300px">
+                                        <Flex>
+                                          <Icon
+                                            ml="4.4rem"
+                                            mt="0.6rem"
+                                            viewBox="0 0 200 200"
+                                            color="green.500"
+                                          >
+                                            <path
+                                              fill="currentColor"
+                                              d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                                            />
+                                          </Icon>
+
+                                          <Text key={el._id}> {el.title} </Text>
+                                        </Flex>
+                                      </Box>
+
+                                      <Box
+                                        // pt='2'
+                                        w="280px"
+                                        display="none"
+                                        _groupHover={{ display: "block" }}
+                                      >
+                                        <Flex
+                                          flexDirection="row"
+                                          justifyContent="space-evenly"
+                                        >
+                                          <Button
+                                            cursor="pointer"
+                                            onClick={handleShowTask}
+                                            colorScheme="whatsapp"
+                                          >
+                                            Add task
+                                          </Button>{" "}
+                                          <IconButton
+                                            onClick={() =>
+                                              dispatch(
+                                                deleteProject(projectId)
+                                              ).then(() => dispatch(getTask()))
+                                            }
+                                            cursor="pointer"
+                                            icon={
+                                              <Icon
+                                                as={RiDeleteBinLine}
+                                                color="gray"
+                                                borderColor="gray"
+                                                stroke="grey"
+                                              />
+                                            }
+                                            variant="outline"
+                                            color="gray"
+                                            aria-label="Call Sage"
+                                            fontSize="20px"
+                                            stroke="grey"
+                                          />
+                                          <IconButton
+                                            onClick={handleEditShowTask}
+                                            cursor="pointer"
+                                            icon={<Icon as={BsThreeDots} />}
+                                            variant="outline"
+                                            color="gray"
+                                            aria-label="Call Sage"
+                                            fontSize="20px"
+                                          />
+                                          <IconButton
+                                            cursor="pointer"
+                                            icon={<Icon as={BsPlay} />}
+                                            variant="outline"
+                                            // color="gray"
+                                            aria-label="Call Sage"
+                                            fontSize="20px"
+                                            bg="#4bb063"
+                                            color="white"
+                                            _hover={{ bg: "#4bb063" }}
+                                          />{" "}
+                                        </Flex>
+                                      </Box>
                                     </Flex>
                                   </Box>
-                                </Flex>
-                              </AccordionButton>
-                            </h2>
-                          </Box>
-                        );
-                      })
-                    ) : (
-                      <Box w="618px" h="40px">
-                        <Text mt="1.2rem" textAlign="center">
-                          No projects added
-                        </Text>
+                                </AccordionPanel>
+                              </AccordionItem>
+                            );
+                          })}
                       </Box>
-                    )
-                  }
-
-                  <AccordionPanel
-                    p="2"
-                    _hover={{ bg: "whitesmoke", cursor: "pointer" }}
-                  >
-                    <Box
-                      color="gray"
-                      borderRadius="4px"
-                      w="618px"
-                      minH="40px"
-                      role="group"
-                      p="1"
-                    >
-                      <Flex
-                        w="600px"
-                        flexDirection="row"
-                        justifyContent="space-around"
-                      >
-                        <Box flex="1" textAlign="left" w="300px">
-                          <Flex>
-                            <Icon
-                              ml="4.4rem"
-                              mt="0.6rem"
-                              viewBox="0 0 200 200"
-                              color="green.500"
-                            >
-                              <path
-                                fill="currentColor"
-                                d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-                              />
-                            </Icon>
-
-                            {tasksData &&
-                              tasksData.map((el) => {
-                                handleTaskData(el._id)
-                                return <Text key={el._id}> {el.title} </Text>;
-                              })}
-                          </Flex>
-                        </Box>
-
-                        <Box
-                          // pt='2'
-                          w="280px"
-                          display="none"
-                          _groupHover={{ display: "block" }}
-                        >
-                          <Flex
-                            flexDirection="row"
-                            justifyContent="space-evenly"
-                          >
-                            <Button
-                              cursor="pointer"
-                              onClick={handleShowTask}
-                              colorScheme="whatsapp"
-                            >
-                              Add task
-                            </Button>{" "}
-                            <IconButton
-                              onClick={() =>
-                                dispatch(deleteProject(projectId)).then(() => dispatch(getTask()))
-                              }
-                              cursor="pointer"
-                              icon={
-                                <Icon
-                                  as={RiDeleteBinLine}
-                                  color="gray"
-                                  borderColor="gray"
-                                  stroke="grey"
-                                />
-                              }
-                              variant="outline"
-                              color="gray"
-                              aria-label="Call Sage"
-                              fontSize="20px"
-                              stroke="grey"
-                            />
-                            <IconButton
-                              onClick={handleEditShowTask}
-                              cursor="pointer"
-                              icon={<Icon as={BsThreeDots} />}
-                              variant="outline"
-                              color="gray"
-                              aria-label="Call Sage"
-                              fontSize="20px"
-                            />
-                            <IconButton
-                              cursor="pointer"
-                              icon={<Icon as={BsPlay} />}
-                              variant="outline"
-                              // color="gray"
-                              aria-label="Call Sage"
-                              fontSize="20px"
-                              bg="#4bb063"
-                              color="white"
-                              _hover={{ bg: "#4bb063" }}
-                            />{" "}
-                          </Flex>
-                        </Box>
-                      </Flex>
-                    </Box>
-                  </AccordionPanel>
-                </AccordionItem>
-              </Accordion>
+                    </Accordion>
+                  );
+                })
+              ) : (
+                <Box w="618px" h="40px">
+                  <Text mt="1.2rem" textAlign="center">
+                    No projects added
+                  </Text>
+                </Box>
+              )}
             </Box>
           </Box>
 
