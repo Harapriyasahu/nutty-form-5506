@@ -15,6 +15,7 @@
     background-position: center;
     background-repeat: no-repeat;
     padding: 6rem 0;
+    /* border: 1px solid red; */
  }
   
 .topcont{
@@ -23,6 +24,8 @@
     margin: auto;
     justify-content: center;
     flex-wrap: wrap;
+    /* border: 1px solid red; */
+   
 }
 
 .Left{
@@ -31,6 +34,7 @@
     background-color: rgba(255, 255, 255, 0.9);
     flex: 0 0 50%;
     max-width: 50%;
+    /* border: 1px solid black; */
 
 }
 
@@ -42,6 +46,7 @@
     margin-right: auto;
     margin-bottom: 0.5rem;
     margin-top: 0;
+    /* border: 1px solid red; */
 }
 
 .Left>h2{
@@ -53,6 +58,7 @@
     margin-right: auto;
     margin-bottom: 0.5rem;
     margin-top: 20px;
+    /* border: 1px solid red; */
 }
 
 .Left>ul{
@@ -68,6 +74,7 @@
     display: flex;
     white-space: nowrap;
     text-align: center;
+    /* border: 1px solid red; */
 }
 
 .Emildiv>button{
@@ -81,6 +88,7 @@
     border: none;
     white-space: nowrap;
     text-align: center;
+    /* border: 1px solid red; */
 }
 
 .Emildiv>button:hover{
@@ -94,12 +102,14 @@
     padding: 15px;
     white-space: nowrap;
     text-align: center;
+    /* border: 1px solid red; */
 }
 
  .Right{
     margin-top: 17rem;
     margin-bottom: 3rem;
-    left: 10rem;
+    /* left: 10rem; */
+    left:50px;
     animation: fade 3s ease-out;
     backdrop-filter: blur(3px);
     background-color: rgba(255, 255, 255, 0.9);
@@ -115,6 +125,7 @@
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
+    /* border: 1px solid red; */
     
  }
  
@@ -143,6 +154,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* border: 1px solid red; */
   
 }
 .Rht>img{
@@ -160,6 +172,7 @@
     text-align: center;
     margin-top: 0;
     padding: 0 2rem;
+    /* border: 1px solid red; */
 }
 
 .RtPara{
@@ -190,6 +203,7 @@
     margin-left: -15px;
     width: 75%;
     margin: auto;
+    /* border: 1px solid red; */
 }
 
 
@@ -199,6 +213,7 @@
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
+    /* border: 1px solid red; */
 }
 
 .HeadDiv>h3{
@@ -207,6 +222,7 @@
     font-size: 18px;
     font-family: nunito sans, sans-serif;
     text-align: center;
+    /* border: 1px solid red; */
 }
 .GreenBox{
     background-color: #25cf60;
@@ -216,6 +232,7 @@
     margin-left: auto;
     padding-right: 15px;
     padding-left: 15px;
+    /* border: 1px solid red; */
 }
 
 .ImgDiv{
@@ -228,6 +245,7 @@
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
+    /* border: 1px solid red; */
 }
 .ImgDiv>img{
     vertical-align: middle;
@@ -245,6 +263,7 @@
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+    /* border: 1px solid red; */
 }
 .BookDemo>div{
     position: relative;
@@ -296,65 +315,73 @@
 
 
 
-/* @media only screen and (max-width: 1020px) and (min-width: 767px) {} */
 
-
-/* for medium screen */
-@media only screen and (min-width: 481px)  and (max-width: 768px)  {
-
+/* for tablet screen */
+@media only screen and (min-width: 425px)  and (max-width: 768px)  {
+    .OuterHome{
+        position: relative;
+        z-index: -100;
+    }
     .cont{
-        width: 70rem;
-        background-image: none;
+        width: 100%;
+        height:auto;
+        background-image: url("https://cdn-m.timecamp.com/img/backgroundTop.webp");
      }
 
      .topcont{
-        width: 150%;
-        display:inline-block;
+        display:flex;
+        width:90%;
+        height:auto;
+        margin:auto;
         flex-wrap: wrap;
+       gap:0;
+        margin-left: 20px;
+        /* border: 1px solid blue; */
         
      }   
     .Left{
-        width:100%;
-        /* border: 1px solid red; */
-        margin-left: 140px;
-        justify-content: center;
-    }
-    .Left>h1{
-       text-align: center;
-       font-size: 20px;
-       margin-top: -90px;
+        width:300px;
+        height:700px;
+         /* border: 1px solid red;  */
+        
     }
     .Left>h2{
-        font-size: 40px;
-        text-align: center;
+        font-size: 35px;
     }
-
-    .Left>ul{
-        margin-left:100px;
-        font-size: 23px;
-    }
+    
     .Emildiv{
-        display: inline;
+        display:inline-block;
+        /* border: #131514 solid; */
+        height:60px;
+        margin-left: 25px;
     }
-    .Emildiv>button{
-        margin-left: 15rem;
-        width:260px;
-        font-size: 20px;
-    }
+    
     .Right{
-        display:none;
+        width:300px;
+        height:450px;
+        /* border:3px solid green; */
+        margin-top: 180px;
+        /* padding-top: 110px; */
+        /* padding-bottom: 50px; */
+        /* margin-left: 1px; */
+    }
+    .RtHead{
+        width: auto;
+    }
+    .RtPara{
+        width: auto;
     }
     .Row{
-        /* border: 1px solid blue; */
+        /* border: 1px solid blue;  */
         display:grid;
-        grid-template-columns: repeat(2,1fr);
-        gap:20px 50px;
+        grid-template-columns: repeat(3,1fr);
+        gap:20px ;
 
     }
     .GreenBox{
-        width: 150%;
+        width: 100%;
         height: auto;
-        /* border: 1px solid black; */
+        /* border: 1px solid black;  */
     }
     .HeadDiv{
         width: 40rem;
@@ -364,10 +391,12 @@
     }
     .HeadDiv>h3{
         text-align:center;
-        font-size: 30px;
+        font-size: 18px;
     }
     .ImgDiv{
         height:auto;
+        width: 120px;
+        /* border: 1px solid red; */
 
     }
     .ImgDiv>img{
@@ -376,8 +405,10 @@
     .BookDemo{
         width:100%;
         text-align: center;
-        border: 1px solid black;
+        /* border: 1px solid black; */
     }
+
+   
 
 
 
@@ -386,7 +417,47 @@
 
 
 /* for mobile screen */
-@media only screen and (max-width: 480px) and (min-width: 320px) {
+/* @media only screen and (min-width: 60px)  and (max-width: 320px)  {
+body{
+    background-color: #1b1b20;
+}
+
+    .cont{
+        width:80%;
+        height: 580px;
+        background-image:none;
+    }
+
+    .topcont{
+        width:100%;
+        display:-ms-inline-grid;
+    }
+   
+    .Left{
+        width:700px;
+        height: auto;
+        margin-top: -120px;
+        margin-left: -700px;
+    }
+
+    .Left>h1{
+       text-align: center;
+        font-size: 17px;
+    }
+    .Left>h2{
+        width:auto;
+        height:auto;
+        font-size: 29px;
+        text-align: center;
+    }
+
+    .Right{
+        display:none;
+        border: 1px solid red;
+    }
+}  */
 
 
+@media only screen and (min-width: 425px)  and (max-width: 768px) {
+   
 }

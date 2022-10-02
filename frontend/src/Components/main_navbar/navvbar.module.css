@@ -117,11 +117,16 @@
     }
   }
 
-/* for small screen */
+/* for tablet screen */
 
 @media only screen and (max-width: 768px) and (min-width: 481px) {
-  .outsideContainer, .sticky {
+  .outsideContainer {
     display: none;
+   
+  }
+  .sticky{
+    /* display: none; */
+    position:fixed
   }
 
   .outerContainr {
