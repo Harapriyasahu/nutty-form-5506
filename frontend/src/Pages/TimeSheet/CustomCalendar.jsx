@@ -15,7 +15,7 @@ export const CustomCalendar = () => {
 
 
   return (
-    <Box className="fc-day-number fc-day-header">
+    <Box w="80%" className="fc-day-number fc-day-header">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
         initialView="dayGridMonth"
