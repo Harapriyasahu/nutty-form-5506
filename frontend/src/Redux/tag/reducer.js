@@ -35,7 +35,7 @@ export const TagReducer = (state = initialState, { type, payload }) => {
     case types.GET_TAG_SUCCESS: {
       return {
         ...state,
-        projectData: payload,
+        tagData: payload,
         getTag: {
           isLoading: false,
           isError: false,

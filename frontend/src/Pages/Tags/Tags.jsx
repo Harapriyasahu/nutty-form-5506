@@ -30,7 +30,7 @@ const Tags = () => {
             <div><Taglist /></div> : null
           }
           <div className="bottombtn">
-            <button className={style.savebtn}>Save Setting</button>
+            <button  className={style.savebtn}>Save Setting</button>
             <button className={style.backbtn}>Back Addons list</button>
           </div>
         </div>

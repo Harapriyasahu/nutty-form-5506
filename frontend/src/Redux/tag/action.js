@@ -58,7 +58,7 @@ export const addTag = (payload) => (dispatch) => {
     headers: headers,
   })
     .then((res) => {
-      return dispatch({ type: types.ADD_TAG_SUCCESS,payload:res.data });
+      return dispatch({ type: types.ADD_TAG_SUCCESS,payload:res.data});
     })
     .catch((err) => {
       dispatch({ type: types.ADD_TAG_FAILURE });
