@@ -25,6 +25,7 @@ import { useNavigate } from "react-router-dom";
 
 const user = getItemFromLocal("user");
 
+
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Navbar = () => {
     dispatch(logoutSuccess());
     removeItemFromLocal("token");
     removeItemFromLocal("user");
-    notify(toast, "Logout Successfully", "success");
+    notify(toast, "Logout Successfully", "success","bottom");
     setTimeout(() => {
       navigate("/");
     }, 1000);

@@ -33,10 +33,11 @@ const RightSectiion = () => {
           dispatch(loginSuccess(res.data));
           notify(toast, res.data.message, "success", "bottom");
           navigate("/app/timesheet");
+          window.location.reload();
         }
       })
       .catch((err) =>{
-        notify(toast, err.response.data.message, 'error');
+        notify(toast, err.response.data.message, 'error',"bottom");
         dispatch(loginFailure())
       } );
   };

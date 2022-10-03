@@ -28,13 +28,13 @@ const ResetPassword = () => {
         .then((res) => {
           console.log(res.data.message);
           if (res.data.message) {
-            notify(toast, res.data.message, "success");
+            notify(toast, res.data.message, "success","bottom");
             navigate("/login");
           }
         })
         .catch((err) => {
           console.log(err);
-          notify(toast, err.response.data.message, "error");
+          notify(toast, err.response.data.message, "error","bottom");
         });
     }
   };
