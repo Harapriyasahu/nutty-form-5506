@@ -11,10 +11,11 @@ const handleEmailSubmit =(e) =>{
   e.preventDefault();
 axios.post("/forgotten_password",{email}).then((res)=>{
   console.log(res.data.message);
-  notify(toast, res.data.message, "success");
+  alert(res.data.message);
+  notify(toast, res.data.message, "success","bottom");
 }).catch((err)=>{
   console.log(err);
-  notify(toast, err.response.data.message, 'error');
+  notify(toast, err.response.data.message, 'error',"bottom");
 })
 
 }

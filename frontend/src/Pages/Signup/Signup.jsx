@@ -35,7 +35,7 @@ const Signup = () => {
         if (res.data) {
           // console.log(res.data);
           dispatch(signupSuccess(res.data));
-          notify(toast, 'Account Created Successfully', 'success');
+          notify(toast, 'Account Created Successfully', 'success',"bottom");
           navigate("/login");
         }
       })
