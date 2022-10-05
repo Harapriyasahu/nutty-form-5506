@@ -105,7 +105,9 @@ userRouter.post("/forgotten_password", async (req, res) => {
       const token = jwt.sign({ userID: user._id }, process.env.JWT_SECRET_KEY, {
         expiresIn: "30m",
       });
-      const link = `https://timecamp-clone-zeta.vercel.app/reset-password/${user._id}/${token}`;
+      const link = `https://timecamp-clone-vert.vercel.app/reset-password/${user._id}/${token}`;
+
+
 
 
       console.log(link);
