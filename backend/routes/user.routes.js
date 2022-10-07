@@ -6,7 +6,7 @@ const { UserModel } = require("../models/userModel");
 require("dotenv").config();
 const { transporter } = require("../config/emailConfig.js");
 const { emailValidator } = require("../middleware/emailValidator");
-const { passwordValidator } = require("../middleware/PasswordValidator");
+const { passwordValidator } = require("../middleware/passwordValidator");
 const {
   emailPassRequiredValidator,
 } = require("../middleware/emailPassRequiredValidator");
