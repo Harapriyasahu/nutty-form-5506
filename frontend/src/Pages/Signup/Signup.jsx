@@ -39,7 +39,10 @@ const Signup = () => {
           navigate("/login");
         }
       })
-      .catch((err) => dispatch(signupFailure()));
+      .catch((err) =>{
+        notify(toast, err.response.data.message, 'error',"bottom");
+        dispatch(signupFailure())
+      } );
   };
 
   return (
