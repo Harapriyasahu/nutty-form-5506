@@ -12,10 +12,11 @@ const emailValidator = (req, res, next) => {
   } else {
     return res
     .status(400)
-    .send({ status: "error", message: "Please give correct email" });
+    .send({ status: "error", message: "Please enter valid email" });
   }
 }else{
     next();
 }
+};
 
-module.exports = { emailValidator };
+module.exports = { emailValidator }
