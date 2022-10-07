@@ -5,10 +5,12 @@ const jwt = require("jsonwebtoken");
 const { UserModel } = require("../models/userModel");
 require("dotenv").config();
 const { transporter } = require("../config/emailConfig.js");
+const { emailValidator } = require("../middleware/emailValidator");
+const { passwordValidator } = require("../middleware/PasswordValidator");
 
 const userRouter = Router();
 
-userRouter.post("/signup", async (req, res) => {
+userRouter.post("/signup",[emailValidator,passwordValidator] async (req, res) => {
   try {
     console.log(req.body);
     const { email, password } = req.body;
@@ -17,7 +19,7 @@ userRouter.post("/signup", async (req, res) => {
     if (isEmailPresent) {
       res
         .status(400)
-        .send({ status: "Failed", message: "Email already exists" });
+        .send({ status: "error", message: "Email already exists" });
     } else {
       bcrypt
         .hash(password, 10)
@@ -36,11 +38,13 @@ userRouter.post("/signup", async (req, res) => {
 
           return res
             .status(400)
-            .send({ status: "Failed", message: "Unable to Register" });
+            .send({ status: "error", message: err.message });
         });
     }
   } catch (err) {
-    res.send(err);
+    return res
+    .status(400)
+    .send({ status: "error", message: err.message });
   }
 });
 
