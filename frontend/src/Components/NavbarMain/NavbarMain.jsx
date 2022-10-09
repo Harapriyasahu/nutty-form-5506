@@ -17,6 +17,7 @@ import {
   Tag,
   Image,
 } from "@chakra-ui/react";
+import { FaAngleDown } from "react-icons/fa";
 import {
   HamburgerIcon,
   CloseIcon,
@@ -30,80 +31,86 @@ export default function NavbarMain() {
 
   return (
     <>
-
-    <Box w="100%" zIndex="55" position="sticky" top="0">
-      <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("black", "white")}
-        minH={"60px"}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
-      >
+      <Box bgColor="#25cf60" color="white" textAlign="center" p="3">
+        <Text>
+          Want to become a Reseller, Affiliate, or Integration Partner? We are
+          recruiting for our new Partner Programs.{" "}
+          <b>Learn more and apply here ➡️.</b>
+        </Text>
+      </Box>
+      <Box w="100%" zIndex="55" position="sticky" top="0">
         <Flex
-          py="5"
-          flex={{ base: 1 }}
-          justify={{ base: "start", md: "start" }}
-        >
-          <Text
-            textAlign={useBreakpointValue({
-              base: "start",
-              md: "start",
-              lg: "left",
-            })}
-            fontFamily={"heading"}
-            ml={{ base: 0, md: 0, lg: "8rem" }}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            {" "}
-            <RouterLink to="/">
-              <img
-                src="https://cdn-m.timecamp.com/img/greenbranding/colorLogo.svg"
-                alt="timecamp logo"
-              />
-            </RouterLink>
-          </Text>
-
-          <Flex display={{ base: "none", md: "none", lg: "flex" }} ml={20}>
-            <DesktopNav />
-          </Flex>
-        </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 1, lg: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
+          bg={useColorModeValue("white", "gray.800")}
+          color={useColorModeValue("black", "white")}
+          minH={"60px"}
+          py={{ base: 2 }}
+          px={{ base: 4 }}
+          borderBottom={1}
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.200", "gray.900")}
+          align={"center"}
         >
           <Flex
-            flex={{ base: 1, md: 1, lg: "auto" }}
-            ml={{ base: -2 }}
-            justify={"flex-end"}
-            display={{ base: "flex", md: "flex", lg: "none" }}
+            py="5"
+            flex={{ base: 1 }}
+            justify={{ base: "start", md: "start" }}
           >
-            <IconButton
-              onClick={onToggle}
-              icon={
-                isOpen ? (
-                  <CloseIcon w={3} h={3} />
-                ) : (
-                  <HamburgerIcon w={5} h={5} />
-                )
-              }
-              variant={"ghost"}
-              aria-label={"Toggle Navigation"}
-            />
-          </Flex>
-        </Stack>
-      </Flex>
+            <Text
+              textAlign={useBreakpointValue({
+                base: "start",
+                md: "start",
+                lg: "left",
+              })}
+              fontFamily={"heading"}
+              ml={{ base: 0, md: 0, lg: "8rem" }}
+              color={useColorModeValue("gray.800", "white")}
+            >
+              {" "}
+              <RouterLink to="/">
+                <img
+                  src="https://cdn-m.timecamp.com/img/greenbranding/colorLogo.svg"
+                  alt="timecamp logo"
+                />
+              </RouterLink>
+            </Text>
 
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
-    </Box>
+            <Flex display={{ base: "none", md: "none", lg: "flex" }} ml={20}>
+              <DesktopNav />
+            </Flex>
+          </Flex>
+
+          <Stack
+            flex={{ base: 1, md: 1, lg: 0 }}
+            justify={"flex-end"}
+            direction={"row"}
+            spacing={6}
+          >
+            <Flex
+              flex={{ base: 1, md: 1, lg: "auto" }}
+              ml={{ base: -2 }}
+              justify={"flex-end"}
+              display={{ base: "flex", md: "flex", lg: "none" }}
+            >
+              <IconButton
+                onClick={onToggle}
+                icon={
+                  isOpen ? (
+                    <CloseIcon w={3} h={3} />
+                  ) : (
+                    <HamburgerIcon w={5} h={5} />
+                  )
+                }
+                variant={"ghost"}
+                aria-label={"Toggle Navigation"}
+              />
+            </Flex>
+          </Stack>
+        </Flex>
+
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav />
+        </Collapse>
+      </Box>
     </>
   );
 }
@@ -153,8 +160,8 @@ const DesktopNav = () => {
           </Popover>
         </Flex>
       ))}
-      <Button bgColor="#f7b801" color="white" borderRadius="20px" px="5">
-        Start tracking time
+      <Button bgColor="#f7b801" color="white" borderRadius="20px" p="5">
+        <RouterLink to="/login"> Start tracking time</RouterLink>
       </Button>
     </Flex>
   );
@@ -269,7 +276,11 @@ const MobileNavItem = ({ label, children, path }) => {
 
 const NAV_ITEMS = [
   {
-    label: "Features",
+    label: (
+      <Flex gap=".1rem" alignItems={"center"}>
+        Features <FaAngleDown />
+      </Flex>
+    ),
     children: [
       {
         label: (
@@ -282,67 +293,152 @@ const NAV_ITEMS = [
             Productivity tracking
           </Flex>
         ),
-        path: "/loginpage",
+        path: "/login",
       },
       {
-        label: "Automatic time tracking",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <img
+              src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/productivity-tracking.svg"
+              alt=""
+            />
+            Automatic time tracking
+          </Flex>
+        ),
+        path: "/login",
       },
       {
-        label: "Reporting",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/reporting.svg" />
+            Reporting
+          </Flex>
+        ),
         path: "#",
       },
       {
-        label: "Timesheet approvals",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/timesheet-approvals.svg" />
+            Timesheet approval
+          </Flex>
+        ),
+        path: "/login",
       },
       {
-        label: "Invoicing",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/invoicing.svg" />
+            Invoicing
+          </Flex>
+        ),
+        path: "/login",
       },
       {
-        label: "Billing rates and budgeting",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/billing-rates.svg" />
+            Billing rates and budgeting
+          </Flex>
+        ),
+        path: "#",
       },
       {
-        label: "Attendance",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/attendance-tracking.svg" />
+            Attendance
+          </Flex>
+        ),
+        path: "#",
       },
     ],
   },
   {
     label: "Pricing",
-    path: "/loginpage",
+    path: "/pricing",
   },
   {
-    label: "Integrations",
+    label: (
+      <Flex gap=".1rem" alignItems={"center"}>
+        Integrations <FaAngleDown />
+      </Flex>
+    ),
     children: [
       {
-        label: "Trello",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/Trello.svg" />
+            Trello
+          </Flex>
+        ),
+        path: "/login",
       },
       {
-        label: "Google Calender",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/GCalendar.svg" />
+            Google Calender
+          </Flex>
+        ),
+        path: "/login",
       },
       {
-        label: "iCal",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/iCal.svg" />
+            iCal
+          </Flex>
+        ),
+        path: "/login",
       },
       {
-        label: "Asana",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/Asana.svg" />
+            Asana
+          </Flex>
+        ),
+        path: "/login",
       },
       {
-        label: "Monday.com",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/Monday.svg" />
+            Monday.com
+          </Flex>
+        ),
+        path: "/login",
       },
       {
-        label: "Jira",
-        path: "/loginpage",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/Jira.svg" />
+            Jira
+          </Flex>
+        ),
+        path: "/login",
       },
       {
-        label: "All integrations",
+        label: (
+          <Flex gap="1rem">
+            {" "}
+            <Image src="https://cdn-m.timecamp.com/img/greenbranding/features/icons-menu/all-integrations.svg" />
+            All integrations
+          </Flex>
+        ),
         path: "/loginpage",
       },
     ],
@@ -350,11 +446,11 @@ const NAV_ITEMS = [
 
   {
     label: "Blog",
-    path: "/loginpage",
+    path: "/blog",
   },
   {
     label: "Book a Demo",
-    path: "/loginpage",
+    path: "/login",
   },
   {
     label: "Sign in",
