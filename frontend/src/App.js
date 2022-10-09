@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import "./App.css";
 import Footer from "./Components/footer/Footer";
-import Navvbar from "./Components/main_navbar/Navvbar";
+import NavbarMain from "./Components/NavbarMain/NavbarMain";
 
 import AllRoutes from "./Routes/AllRoutes";
 
@@ -9,7 +9,7 @@ function App() {
   const token = useSelector((store) => store.AuthReducer.token);
   return (
     <div className="App">
-      {token ? null : <Navvbar />}
+      {token ? null : <NavbarMain />}
       <AllRoutes />
       {token ? null : <Footer />}
     </div>
