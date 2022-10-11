@@ -45,6 +45,6 @@ In the project directory, you can run:
 
 3.git clone https://github.com/Harapriyasahu/nutty-form-5506.git
 
-4.npm install  (To install all the dependencies)
+4.do "npm install" in frontend and backend folder  (To install all the dependencies)
 
-5.npm start
+5.then "npm start"
