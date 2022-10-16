@@ -32,17 +32,29 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 
 
 
+<h1>View Deployment</h1>
+</hr>
+<h4>Checkout live website: https://timecamp-clone-vert.vercel.app/</h4>
+</hr>
+
+
 
 
 <br />
-### Features
-1)Sign-up and Login functionality  <br/>
-2)Timesheet page  <br/>
-3)Project page functionality <br/>
-4)Tag Page functionality <br/>
-5)Homepage  <br/>
-6)Bolg and Pricing page <br/>
-7)Header and Footer <br/>
+
+
+
+
+
+## 🚀 Features
+- Signup Login and Logout User Account
+- JWT (Json Web Token) Authentication and BcryptJS Password Hashing 
+- Reset Password link sending on mail using Nodemailer
+- Authorisation
+- CRUD functionalities for Project, Tasks and Tags
+
+<br />
+
 
 <h1>Some visuals of our project </h1>
  </hr>
@@ -60,7 +72,7 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
   <h3>Signup page: </h3>
 <img src="https://user-images.githubusercontent.com/101813593/196032714-51a58d45-422e-481f-994a-4707ddffd77e.png" alt="Signup page" />
 
-![Screenshot (398)]()
+
 
 
   <h3>Login page: </h3>
@@ -71,18 +83,14 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 
 <h3>Project page: </h3>
 <img src="https://user-images.githubusercontent.com/101813593/196032895-cf669b71-556c-4027-80fe-1560ea7be930.png" alt="Projects page" />
-![Screenshot (400)]()
+
 
 
 <h3>Tags page: </h3>
 <img src="https://user-images.githubusercontent.com/101813593/196032934-e69a9cea-30e7-46c3-8374-eb7ec3074dc6.png" alt="tags page" />
 
 
-<h1>View Deployment</h1>
 </hr>
-<h4>Checkout live website: https://timecamp-clone-vert.vercel.app/</h4>
-</hr>
-
 ## Team Members and Contributors 😇 :
 
 - 👤 Gautam Kumar
@@ -114,12 +122,12 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 
 ### Steps to run this Clone:-
 
-1.create a folder on your system.
+1. Create a folder on your system.
 
-2.Open with Visual Studio Code.
+2. Open with Visual Studio Code.
 
-3.git clone https://github.com/Harapriyasahu/nutty-form-5506.git
+3. git clone https://github.com/Harapriyasahu/nutty-form-5506.git
 
-4.do "npm install" in frontend and backend folder  (To install all the dependencies)
+4. Do "npm install" in frontend and backend folder  (To install all the dependencies)
 
-5.then "npm start"
+5. Then "npm start" to run the project on your local system
