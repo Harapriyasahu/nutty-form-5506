@@ -32,6 +32,10 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 
 
 
+<br />
+
+
+
 <h1>View Deployment</h1>
 </hr>
 <h4>Checkout live website: https://timecamp-clone-vert.vercel.app/</h4>
@@ -89,9 +93,14 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 <h3>Tags page: </h3>
 <img src="https://user-images.githubusercontent.com/101813593/196032934-e69a9cea-30e7-46c3-8374-eb7ec3074dc6.png" alt="tags page" />
 
+<br />
+
 
 </hr>
+
+
 ## Team Members and Contributors 😇 :
+
 
 - 👤 Gautam Kumar
   Github: https://github.com/gkomsai
