@@ -46,22 +46,36 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 
 <h1>Some visuals of our project </h1>
  </hr>
+ 
  <h3>Landing page: </h3>
- <img src="https://user-images.githubusercontent.com/101813593/190867318-f317c582-659a-4787-899e-162e1dfaef53.png" alt="Landing page"/>
+ <img src="https://user-images.githubusercontent.com/101813593/196032479-f095fb0a-b8bb-47ae-bdf6-fd33545458c1.png" alt="Landing page"/>
+
 
   <h3>Pricing page: </h3>
-<img src="https://user-images.githubusercontent.com/101813593/190867388-61e0b4b1-e9e9-4b35-8e80-aec7e6a9f0a7.png" alt="Pricing page" />
-  <h3>Demo page: </h3>
-<img src="https://user-images.githubusercontent.com/101813593/190867422-d45eccf9-18a3-4b68-9214-2fb739f344b7.png" alt="Demo page" />
+<img src="https://user-images.githubusercontent.com/101813593/196032619-8d6d6994-d6ae-478c-95ce-28656d4e426f.png" alt="Pricing page" />
+
+  <h3>Blog page: </h3>
+<img src="https://user-images.githubusercontent.com/101813593/196032644-2d508d58-723c-4f36-83b7-eaccc0895af7.png" alt="Blog page" />
+
   <h3>Signup page: </h3>
-<img src="https://user-images.githubusercontent.com/101813593/190867499-ccf32a4c-87b7-4614-9923-ae91035e6a7e.png" alt="Signup page" />
+<img src="https://user-images.githubusercontent.com/101813593/196032714-51a58d45-422e-481f-994a-4707ddffd77e.png" alt="Signup page" />
+
+![Screenshot (398)]()
+
 
   <h3>Login page: </h3>
-<img src="https://user-images.githubusercontent.com/101813593/190867529-79905a97-8827-46cb-8c96-b8405801b3ed.png" alt="Login page" />
+<img src="https://user-images.githubusercontent.com/101813593/196032755-f3430d9c-536a-4c07-a485-cb14c67c1e38.png" alt="Login page" />
 
-  <h3>Footer: </h3>
-<img src="https://user-images.githubusercontent.com/101813593/187067413-b3f2123b-fbb5-4644-9132-8b9d0a0a7594.PNG" alt="Footer" />
+  <h3>Timesheet page: </h3>
+<img src="https://user-images.githubusercontent.com/101813593/196032779-641d71ee-0391-40d7-8fa9-66b0848c8c06.png" alt="timesheet" />
 
+<h3>Project page: </h3>
+<img src="https://user-images.githubusercontent.com/101813593/196032895-cf669b71-556c-4027-80fe-1560ea7be930.png" alt="Projects page" />
+![Screenshot (400)]()
+
+
+<h3>Tags page: </h3>
+<img src="https://user-images.githubusercontent.com/101813593/196032934-e69a9cea-30e7-46c3-8374-eb7ec3074dc6.png" alt="tags page" />
 
 
 <h1>View Deployment</h1>
@@ -91,8 +105,7 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 
 
 </hr>
-<h1>Tech Stack </h1>
-<h3>React,Redux, React-router-dom, Chakara UI, Git,  HTML5, CSS3, JavaScript </h3>
+
 
 
 
